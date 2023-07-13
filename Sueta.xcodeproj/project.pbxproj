@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */; };
 		0055A2C32A5EE60200153C03 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2C22A5EE60200153C03 /* Event.swift */; };
-		005643032A600F33001B0265 /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643022A600F33001B0265 /* EventsController.swift */; };
 		005643052A60639C001B0265 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005643042A60639C001B0265 /* GoogleService-Info.plist */; };
+		005643082A606488001B0265 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643072A606488001B0265 /* FirebaseHelper.swift */; };
+		0056430A2A6068CB001B0265 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643092A6068CB001B0265 /* User.swift */; };
+		0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056430C2A606EF3001B0265 /* NewEventViewController.swift */; };
 		00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */; };
 		00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969012A5EB2E5000237F1 /* SceneDelegate.swift */; };
 		00C969092A5EB2E6000237F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C969082A5EB2E6000237F1 /* Assets.xcassets */; };
@@ -25,8 +27,10 @@
 /* Begin PBXFileReference section */
 		0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0055A2C22A5EE60200153C03 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		005643022A600F33001B0265 /* EventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		005643042A60639C001B0265 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		005643072A606488001B0265 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		005643092A6068CB001B0265 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0056430C2A606EF3001B0265 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		00C968FC2A5EB2E5000237F1 /* Sueta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sueta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00C969012A5EB2E5000237F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,16 +62,25 @@
 			isa = PBXGroup;
 			children = (
 				0055A2C22A5EE60200153C03 /* Event.swift */,
+				005643092A6068CB001B0265 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		005642FC2A600EB7001B0265 /* Delegates */ = {
+		005643062A606473001B0265 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				005643022A600F33001B0265 /* EventsController.swift */,
+				005643072A606488001B0265 /* FirebaseHelper.swift */,
 			);
-			path = Delegates;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0056430B2A606EE0001B0265 /* NewEventView */ = {
+			isa = PBXGroup;
+			children = (
+				0056430C2A606EF3001B0265 /* NewEventViewController.swift */,
+			);
+			path = NewEventView;
 			sourceTree = "<group>";
 		};
 		00C968F32A5EB2E5000237F1 = {
@@ -91,7 +104,8 @@
 		00C968FE2A5EB2E5000237F1 /* Sueta */ = {
 			isa = PBXGroup;
 			children = (
-				005642FC2A600EB7001B0265 /* Delegates */,
+				0056430B2A606EE0001B0265 /* NewEventView */,
+				005643062A606473001B0265 /* Service */,
 				0055A2C12A5EE5EB00153C03 /* Models */,
 				00C9691A2A5EB7B3000237F1 /* EventsListView */,
 				00C969192A5EB7A5000237F1 /* ProfileView */,
@@ -274,12 +288,14 @@
 			files = (
 				0055A2C32A5EE60200153C03 /* Event.swift in Sources */,
 				0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */,
+				0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */,
 				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
-				005643032A600F33001B0265 /* EventsController.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
+				005643082A606488001B0265 /* FirebaseHelper.swift in Sources */,
 				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
+				0056430A2A6068CB001B0265 /* User.swift in Sources */,
 				00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

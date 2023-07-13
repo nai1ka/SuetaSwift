@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MapKit
+import FirebaseFirestore
 
 class MapViewController: UIViewController{
     private lazy var mapView: MKMapView = {
@@ -30,19 +31,22 @@ class MapViewController: UIViewController{
     }
     
     private lazy var newEventButton: UIButton={
+        let button: UIButton!
         if #available(iOS 15.0, *) {
             var filled = UIButton.Configuration.filled()
             filled.title = "Навести суеты!"
             filled.buttonSize = .large
             filled.titlePadding = 10
-            let button = UIButton(configuration: filled, primaryAction: nil)
+            button = UIButton(configuration: filled, primaryAction: nil)
             button.translatesAutoresizingMaskIntoConstraints = false
-            return button
+            
         } else {
-            let button = UIButton()
+            button = UIButton()
             button.setTitle( "Навести суеты!", for: .normal)
-            return button
+            
         }
+        button.addTarget(self, action: #selector(createNewEvent), for: .touchUpInside)
+        return button
         
       
     }()
@@ -80,6 +84,11 @@ class MapViewController: UIViewController{
         
         newEventButton.heightAnchor.constraint(equalToConstant:40).isActive = true
         
+    }
+    
+    @objc private func createNewEvent(){
+        self.present(NewEventViewController(), animated: true)
+//        FirebaseHelper.shared.addEvent(Event(title: "Sueta", description: "Hello world", peopleNumber: 10, ownerID: "Arina", date: Date(), position: GeoPoint(latitude: 0, longitude: 0)))
     }
     
    

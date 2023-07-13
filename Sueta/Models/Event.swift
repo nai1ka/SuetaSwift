@@ -11,7 +11,10 @@ import FirebaseFirestore
 struct Event{
     let title: String
     let description: String
+    let peopleNumber: Int
     let ownerID: String
     let date: Date
     let position: GeoPoint
+    let users: [User] = []
+    
 }
