@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */; };
+		0055A2C32A5EE60200153C03 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2C22A5EE60200153C03 /* Event.swift */; };
+		005643032A600F33001B0265 /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643022A600F33001B0265 /* EventsController.swift */; };
 		00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */; };
 		00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969012A5EB2E5000237F1 /* SceneDelegate.swift */; };
-		00C969042A5EB2E5000237F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969032A5EB2E5000237F1 /* ViewController.swift */; };
-		00C969072A5EB2E5000237F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C969052A5EB2E5000237F1 /* Main.storyboard */; };
 		00C969092A5EB2E6000237F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C969082A5EB2E6000237F1 /* Assets.xcassets */; };
 		00C9690C2A5EB2E6000237F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C9690A2A5EB2E6000237F1 /* LaunchScreen.storyboard */; };
+		00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969142A5EB3F1000237F1 /* MapViewController.swift */; };
+		00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969172A5EB70C000237F1 /* MainViewController.swift */; };
+		00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */; };
+		00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */; };
+		00C969202A5EBF6D000237F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C9691F2A5EBF6D000237F1 /* GoogleService-Info.plist */; };
+		B309B35F78A91811597B4CD8 /* Pods_Sueta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C360CC36832B14631911331F /* Pods_Sueta.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0055A2C22A5EE60200153C03 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		005643022A600F33001B0265 /* EventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		00C968FC2A5EB2E5000237F1 /* Sueta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sueta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00C969012A5EB2E5000237F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		00C969032A5EB2E5000237F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		00C969062A5EB2E5000237F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00C969082A5EB2E6000237F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00C9690B2A5EB2E6000237F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00C9690D2A5EB2E6000237F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00C969142A5EB3F1000237F1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		00C969172A5EB70C000237F1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		00C9691F2A5EBF6D000237F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		76B0FE0FCCF903AD67AF51B5 /* Pods-Sueta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sueta.release.xcconfig"; path = "Target Support Files/Pods-Sueta/Pods-Sueta.release.xcconfig"; sourceTree = "<group>"; };
+		C360CC36832B14631911331F /* Pods_Sueta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sueta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C372DEF583BA0D6B393CD6F0 /* Pods-Sueta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sueta.debug.xcconfig"; path = "Target Support Files/Pods-Sueta/Pods-Sueta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B309B35F78A91811597B4CD8 /* Pods_Sueta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0055A2C12A5EE5EB00153C03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0055A2C22A5EE60200153C03 /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		005642FC2A600EB7001B0265 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				005643022A600F33001B0265 /* EventsController.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		00C968F32A5EB2E5000237F1 = {
 			isa = PBXGroup;
 			children = (
 				00C968FE2A5EB2E5000237F1 /* Sueta */,
 				00C968FD2A5EB2E5000237F1 /* Products */,
+				627A132DD4D67515ED1541E1 /* Pods */,
+				43659FC005952BCB4DD5CF49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +91,70 @@
 		00C968FE2A5EB2E5000237F1 /* Sueta */ = {
 			isa = PBXGroup;
 			children = (
+				005642FC2A600EB7001B0265 /* Delegates */,
+				0055A2C12A5EE5EB00153C03 /* Models */,
+				00C9691A2A5EB7B3000237F1 /* EventsListView */,
+				00C969192A5EB7A5000237F1 /* ProfileView */,
+				00C969162A5EB6F8000237F1 /* MainScreen */,
+				00C969132A5EB3D3000237F1 /* MapView */,
 				00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */,
 				00C969012A5EB2E5000237F1 /* SceneDelegate.swift */,
-				00C969032A5EB2E5000237F1 /* ViewController.swift */,
-				00C969052A5EB2E5000237F1 /* Main.storyboard */,
 				00C969082A5EB2E6000237F1 /* Assets.xcassets */,
 				00C9690A2A5EB2E6000237F1 /* LaunchScreen.storyboard */,
 				00C9690D2A5EB2E6000237F1 /* Info.plist */,
+				00C9691F2A5EBF6D000237F1 /* GoogleService-Info.plist */,
 			);
 			path = Sueta;
+			sourceTree = "<group>";
+		};
+		00C969132A5EB3D3000237F1 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				00C969142A5EB3F1000237F1 /* MapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		00C969162A5EB6F8000237F1 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				00C969172A5EB70C000237F1 /* MainViewController.swift */,
+				0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		00C969192A5EB7A5000237F1 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		00C9691A2A5EB7B3000237F1 /* EventsListView */ = {
+			isa = PBXGroup;
+			children = (
+				00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */,
+			);
+			path = EventsListView;
+			sourceTree = "<group>";
+		};
+		43659FC005952BCB4DD5CF49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C360CC36832B14631911331F /* Pods_Sueta.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		627A132DD4D67515ED1541E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C372DEF583BA0D6B393CD6F0 /* Pods-Sueta.debug.xcconfig */,
+				76B0FE0FCCF903AD67AF51B5 /* Pods-Sueta.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00C969102A5EB2E6000237F1 /* Build configuration list for PBXNativeTarget "Sueta" */;
 			buildPhases = (
+				70B1776F6194D1A02221E7CE /* [CP] Check Pods Manifest.lock */,
 				00C968F82A5EB2E5000237F1 /* Sources */,
 				00C968F92A5EB2E5000237F1 /* Frameworks */,
 				00C968FA2A5EB2E5000237F1 /* Resources */,
+				176985125193B582D9D5B249 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +219,74 @@
 			files = (
 				00C9690C2A5EB2E6000237F1 /* LaunchScreen.storyboard in Resources */,
 				00C969092A5EB2E6000237F1 /* Assets.xcassets in Resources */,
-				00C969072A5EB2E5000237F1 /* Main.storyboard in Resources */,
+				00C969202A5EBF6D000237F1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		176985125193B582D9D5B249 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sueta/Pods-Sueta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sueta/Pods-Sueta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sueta/Pods-Sueta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70B1776F6194D1A02221E7CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sueta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00C968F82A5EB2E5000237F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00C969042A5EB2E5000237F1 /* ViewController.swift in Sources */,
+				0055A2C32A5EE60200153C03 /* Event.swift in Sources */,
+				0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */,
+				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
+				005643032A600F33001B0265 /* EventsController.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
+				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
+				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
+				00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		00C969052A5EB2E5000237F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00C969062A5EB2E5000237F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		00C9690A2A5EB2E6000237F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +414,7 @@
 		};
 		00C969112A5EB2E6000237F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C372DEF583BA0D6B393CD6F0 /* Pods-Sueta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -291,9 +424,9 @@
 				INFOPLIST_FILE = Sueta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +442,7 @@
 		};
 		00C969122A5EB2E6000237F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B0FE0FCCF903AD67AF51B5 /* Pods-Sueta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,9 +452,9 @@
 				INFOPLIST_FILE = Sueta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
