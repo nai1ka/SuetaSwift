@@ -22,6 +22,9 @@
 		00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */; };
 		00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */; };
 		B309B35F78A91811597B4CD8 /* Pods_Sueta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C360CC36832B14631911331F /* Pods_Sueta.framework */; };
+		C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E771A12A607481002A17C9 /* EventListTableController.swift */; };
+		C3E771A52A607482002A17C9 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E771A22A607482002A17C9 /* EventCell.swift */; };
+		C3E771A92A60853E002A17C9 /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E771A82A60853E002A17C9 /* UIView+Anchor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		76B0FE0FCCF903AD67AF51B5 /* Pods-Sueta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sueta.release.xcconfig"; path = "Target Support Files/Pods-Sueta/Pods-Sueta.release.xcconfig"; sourceTree = "<group>"; };
 		C360CC36832B14631911331F /* Pods_Sueta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sueta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C372DEF583BA0D6B393CD6F0 /* Pods-Sueta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sueta.debug.xcconfig"; path = "Target Support Files/Pods-Sueta/Pods-Sueta.debug.xcconfig"; sourceTree = "<group>"; };
+		C3E771A12A607481002A17C9 /* EventListTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTableController.swift; sourceTree = "<group>"; };
+		C3E771A22A607482002A17C9 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		C3E771A82A60853E002A17C9 /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +155,10 @@
 		00C9691A2A5EB7B3000237F1 /* EventsListView */ = {
 			isa = PBXGroup;
 			children = (
+				C3E771A22A607482002A17C9 /* EventCell.swift */,
+				C3E771A12A607481002A17C9 /* EventListTableController.swift */,
 				00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */,
+				C3E771A82A60853E002A17C9 /* UIView+Anchor.swift */,
 			);
 			path = EventsListView;
 			sourceTree = "<group>";
@@ -291,12 +300,15 @@
 				0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */,
 				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
+				C3E771A52A607482002A17C9 /* EventCell.swift in Sources */,
 				005643082A606488001B0265 /* FirebaseHelper.swift in Sources */,
+				C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */,
 				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
 				0056430A2A6068CB001B0265 /* User.swift in Sources */,
 				00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */,
+				C3E771A92A60853E002A17C9 /* UIView+Anchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

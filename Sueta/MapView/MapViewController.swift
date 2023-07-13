@@ -13,7 +13,6 @@ import FirebaseFirestore
 class MapViewController: UIViewController{
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
-        mapView.overrideUserInterfaceStyle = .light
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()

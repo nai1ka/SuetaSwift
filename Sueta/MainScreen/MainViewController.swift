@@ -13,15 +13,18 @@ class MainViewController: UITabBarController{
     
     private var viewModel = MainViewModel()
    
-    let  mapViewController: MapViewController
+    let mapViewController: MapViewController
+    let eventListViewController: EventsListViewController
     
     init() {
         mapViewController = MapViewController(viewModel)
+        eventListViewController = EventsListViewController(viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         mapViewController = MapViewController(viewModel)
+        eventListViewController = EventsListViewController(viewModel)
         super.init(coder: coder)
     }
    
@@ -53,7 +56,7 @@ class MainViewController: UITabBarController{
     func setupVCs() {
         viewControllers = [
             createNavController(for: mapViewController, title: NSLocalizedString("Map", comment: ""), image: UIImage(systemName: "map")!),
-            createNavController(for: EventsListViewController(), title: NSLocalizedString("Events", comment: ""), image: UIImage(systemName: "list.bullet")!),
+            createNavController(for: eventListViewController, title: NSLocalizedString("Events", comment: ""), image: UIImage(systemName: "list.bullet")!),
             createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
         ]
     }
@@ -61,6 +64,7 @@ class MainViewController: UITabBarController{
     func bindViewModel() {
             viewModel.events.bind(to: self) { strongSelf, _ in
                 strongSelf.mapViewController.updateAnnotations()
+                strongSelf.eventListViewController.updateEvents()
             }
         }
     
