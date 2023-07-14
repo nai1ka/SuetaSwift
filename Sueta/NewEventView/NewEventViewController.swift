@@ -49,6 +49,8 @@ class NewEventViewController: UIViewController{
                         
                         for: .normal)
         
+        
+        
         return button
     }()
     
