@@ -21,7 +21,7 @@ class FirebaseHelper {
             "eventName": event.title,
             "eventOwner": event.ownerID,
             "eventPosition": event.position,
-            "peopleNumber": 0
+            "peopleNumber": event.peopleNumber
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
