@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class MapViewController: UIViewController{
     private lazy var mapView: MKMapView = {
@@ -87,6 +88,13 @@ class MapViewController: UIViewController{
     
     @objc private func createNewEvent(){
         self.present(NewEventViewController(), animated: true)
+        do{
+            try Auth.auth().signOut()
+        }
+        catch{
+            print("Cannot sign out")
+        }
+       
 //        FirebaseHelper.shared.addEvent(Event(title: "Sueta", description: "Hello world", peopleNumber: 10, ownerID: "Arina", date: Date(), position: GeoPoint(latitude: 0, longitude: 0)))
     }
     

@@ -48,9 +48,6 @@ class NewEventViewController: UIViewController{
         button.setImage(UIImage(systemName: "arrow.left"),
                         
                         for: .normal)
-        
-        
-        
         return button
     }()
     
