@@ -30,26 +30,7 @@ class MapViewController: UIViewController{
         fatalError("Not implemented")
     }
     
-    private lazy var newEventButton: UIButton={
-        let button: UIButton!
-        if #available(iOS 15.0, *) {
-            var filled = UIButton.Configuration.filled()
-            filled.title = "Навести суеты!"
-            filled.buttonSize = .large
-            filled.titlePadding = 10
-            button = UIButton(configuration: filled, primaryAction: nil)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            
-        } else {
-            button = UIButton()
-            button.setTitle( "Навести суеты!", for: .normal)
-            
-        }
-        button.addTarget(self, action: #selector(createNewEvent), for: .touchUpInside)
-        return button
-        
-      
-    }()
+   
     
     
     override func viewDidLoad() {
@@ -78,20 +59,8 @@ class MapViewController: UIViewController{
         mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        view.addSubview(newEventButton)
-        newEventButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        newEventButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        
-        newEventButton.heightAnchor.constraint(equalToConstant:40).isActive = true
-        
     }
     
-    @objc private func createNewEvent(){
-        self.present(NewEventViewController(), animated: true)
-       
-       
-//        FirebaseHelper.shared.addEvent(Event(title: "Sueta", description: "Hello world", peopleNumber: 10, ownerID: "Arina", date: Date(), position: GeoPoint(latitude: 0, longitude: 0)))
-    }
     
    
 }

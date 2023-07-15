@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class NewEventViewController: UIViewController{
     
@@ -20,6 +21,8 @@ class NewEventViewController: UIViewController{
         segmentControl.addTarget(self, action: #selector(onSegmentValueChanged), for: .valueChanged)
         return segmentControl
     }()
+    
+    var onEventChangeListener: OnEventChangeListener?
     
     private lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
@@ -124,10 +127,6 @@ class NewEventViewController: UIViewController{
         doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
-        
-        
-        
-        
         view.addSubview(generalInfoView)
         generalInfoView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 8).isActive = true
         generalInfoView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -8).isActive = true
@@ -197,11 +196,10 @@ class NewEventViewController: UIViewController{
        
         
         
-        let newEvent = Event(title: title!, description: description!, peopleNumber: peopleNumber, ownerID: "", date: date, position: position)
+        let newEvent = Event(title: title!, description: description!, peopleNumber: peopleNumber, ownerID: Auth.auth().currentUser!.uid, date: date, position: position)
         FirebaseHelper.shared.addEvent(newEvent)
+        onEventChangeListener?.onEventAdded()
         self.dismiss(animated: true)
-        
-        
     }
     
     @objc func onMapClick(recognizer: UITapGestureRecognizer) {
@@ -293,4 +291,8 @@ class NewEventViewController: UIViewController{
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }
+}
+
+protocol OnEventChangeListener{
+    func onEventAdded()
 }
