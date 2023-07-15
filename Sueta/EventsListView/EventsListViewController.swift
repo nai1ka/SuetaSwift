@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
-class EventsListViewController: UIViewController {
+class EventsListViewController: UIViewController, OnCellClickDelegate {
+    let eventViewController = SingleEventViewController()
+    
+    func onCellClick(indexPath: IndexPath) {
+        self.present(eventViewController, animated: true)
+        eventViewController.event = viewModel.events.value[indexPath.row]
+    }
+    
     
     let tableView = UITableView()
     let tableController = EventListTableViewController()
@@ -25,6 +32,7 @@ class EventsListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         tableView.dataSource = tableController
         tableView.delegate = tableController
+        tableController.listViewController = self
         setupTableView()
         tableView.reloadData()
         
