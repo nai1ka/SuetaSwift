@@ -14,8 +14,8 @@
             filePath = "Sueta/MainScreen/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "bindViewModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Sueta/NewEventView/NewEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "setupGeneralInfoView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Sueta/NewEventView/NewEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "onMapClick(recognizer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Sueta/NewEventView/NewEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "onMapClick(recognizer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,9 +78,200 @@
             filePath = "Sueta/NewEventView/NewEventViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "doneBtnClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC52179E-8F6B-496D-89A9-EB148C1002BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "scene(_:willConnectTo:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFF242BE-FA51-4AC1-B6A5-AD7E5D07EEF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/SignUpView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "onRegisterClick()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFF242BE-FA51-4AC1-B6A5-AD7E5D07EEF4 - 9196ee9cf72f21d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SignUpView.onRegisterClick() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/AuthView/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "1072">
+               </Location>
+               <Location
+                  uuid = "DFF242BE-FA51-4AC1-B6A5-AD7E5D07EEF4 - 7331e6bdfe6b46bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Sueta.SignUpView.onRegisterClick() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/AuthView/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3AD1A5FE-4383-4080-85C1-91650AED8A35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/SignUpView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "onRegisterClick()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3AD1A5FE-4383-4080-85C1-91650AED8A35 - 9196ee9cf72f2173"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SignUpView.onRegisterClick() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/AuthView/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "3AD1A5FE-4383-4080-85C1-91650AED8A35 - 9196ee9cf72f2173"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SignUpView.onRegisterClick() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/AuthView/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "3AD1A5FE-4383-4080-85C1-91650AED8A35 - 9196ee9cf72f2173"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SignUpView.onRegisterClick() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/AuthView/SignUpView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7074F41-C37E-451E-86DF-82329AA4039A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/SignUpView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "onRegisterClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BC18F74-5D67-4AA6-A9AB-658BA14E424D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/AuthViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "onAlreadyHasAccount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B76F4DA-0356-4A64-BD7C-2CD58D45F969"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/AuthViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "onCreateAccout()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB571728-5DDE-41A6-9D3D-7B1B0CBAF80F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/AuthView/SignInView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "createAccountClick()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

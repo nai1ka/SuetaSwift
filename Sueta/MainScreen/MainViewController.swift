@@ -53,6 +53,11 @@ class MainViewController: UITabBarController{
         return navController
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
+    
     func setupVCs() {
         viewControllers = [
             createNavController(for: mapViewController, title: NSLocalizedString("Map", comment: ""), image: UIImage(systemName: "map")!),
