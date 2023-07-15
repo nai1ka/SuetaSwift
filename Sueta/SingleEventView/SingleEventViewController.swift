@@ -56,6 +56,7 @@ class SingleEventViewController: UIViewController {
     }
     
     private func setupViews(){
+        view.backgroundColor = .systemBackground
         view.addSubview(eventNameLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(numOfParticipantsLabel)

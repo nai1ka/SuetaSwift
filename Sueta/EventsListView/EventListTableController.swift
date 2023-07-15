@@ -35,9 +35,7 @@ class EventListTableViewController: UITableViewController{
     }
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        
-        //listViewController.onCellClick(indexPath: indexPath)
+        listViewController?.onCellClick(indexPath: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
