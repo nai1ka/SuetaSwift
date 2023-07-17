@@ -107,7 +107,7 @@ class SignUpView: UIView{
                 print("Cannot signup")
             }
             else{
-                self?.loginListener?.succsessfullyLogined()
+                self?.loginListener?.successfullyRegistered()
             }
             
         }

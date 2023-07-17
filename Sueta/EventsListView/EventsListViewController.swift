@@ -15,7 +15,7 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
     private var events: [Event] = []
     func onCellClick(indexPath: IndexPath) {
         self.present(eventViewController, animated: true)
-        //eventViewController.event = viewModel.events.value[indexPath.row]
+        eventViewController.event = events[indexPath.row]
     }
     
     

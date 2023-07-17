@@ -10,6 +10,12 @@ import UIKit
 import FirebaseAuth
 
 class AuthViewController: UIViewController, OnLoginListener{
+  
+    func successfullyRegistered() {
+        FirebaseHelper.shared.registerUser()
+        self.navigationController?.pushViewController(MainViewController(), animated: true)
+    }
+    
     
     
     func onCreateAccout() {
@@ -22,7 +28,7 @@ class AuthViewController: UIViewController, OnLoginListener{
         signUpView.isHidden = true
     }
     
-    func succsessfullyLogined() {
+    func successfullyLogined() {
         self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
     
@@ -33,6 +39,7 @@ class AuthViewController: UIViewController, OnLoginListener{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         signUpView.loginListener = self
         signInView.loginListener = self
         setupViews()
@@ -89,7 +96,8 @@ class AuthViewController: UIViewController, OnLoginListener{
 }
 
 protocol OnLoginListener{
-    func succsessfullyLogined()
+    func successfullyLogined()
+    func successfullyRegistered()
     func onAlreadyHasAccount()
     func onCreateAccout()
 }

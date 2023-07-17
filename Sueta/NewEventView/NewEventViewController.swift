@@ -196,7 +196,7 @@ class NewEventViewController: UIViewController{
        
         
         
-        let newEvent = Event(title: title!, description: description!, peopleNumber: peopleNumber, ownerID: Auth.auth().currentUser!.uid, date: date, position: position)
+        let newEvent = Event(title: title!, description: description!, peopleNumber: peopleNumber, ownerID: FirebaseHelper.shared.getCurrentUser()!.uid, date: date, position: position)
         FirebaseHelper.shared.addEvent(newEvent)
         onEventChangeListener?.onEventAdded()
         self.dismiss(animated: true)

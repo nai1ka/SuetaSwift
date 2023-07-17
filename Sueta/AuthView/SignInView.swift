@@ -99,7 +99,7 @@ class SignInView: UIView{
             }
             else{
                 print(authResult!.description)
-                self?.loginListener?.succsessfullyLogined()
+                self?.loginListener?.successfullyLogined()
             }
            
           // ...
