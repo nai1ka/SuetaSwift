@@ -57,7 +57,12 @@ class SingleEventViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    private lazy var dateIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "calendar")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 //    var dateIconView = UIImageView(image: .)?<#default value#>
     
     private lazy var ownerIDLabel: UILabel = {
@@ -79,6 +84,7 @@ class SingleEventViewController: UIViewController {
     }
     
     private func setupData(_ event: Event){
+        print("Event title: \(event.title)")
         eventNameLabel.text = event.title
         descriptionLabel.text = event.description
         numOfParticipantsLabel.text = String(event.peopleNumber ?? 0)
@@ -107,23 +113,23 @@ class SingleEventViewController: UIViewController {
     func setupViews(){
         contentView.addSubview(eventNameLabel)
         eventNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48).isActive = true
+        eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100).isActive = true
         eventNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
         
 //        contentView.addSubview(dateIcon)
-        eventNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48).isActive = true
-        eventNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
-        contentView.addSubview(descriptionName)
-        descriptionName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        descriptionName.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 24).isActive = true
-        descriptionName.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
-        contentView.addSubview(descriptionLabel)
-        descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 16).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+//        dateIcon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+//        dateIcon.topAnchor.constraint(equalTo: eventNameLabel.topAnchor, constant: 48).isActive = true
+//        dateIcon.widthAnchor.constraint(equalToConstant: 40).isActive = true
+//        dateIcon.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        contentView.addSubview(descriptionName)
+//        descriptionName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+//        descriptionName.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 24).isActive = true
+//        descriptionName.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
+//
+//        contentView.addSubview(descriptionLabel)
+//        descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+//        descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 16).isActive = true
+//        descriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
+//        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }

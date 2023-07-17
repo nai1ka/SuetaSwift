@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "setupTableView()"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -96,7 +96,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "updateEvents()"
+            landmarkName = "setupTableView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -162,6 +162,54 @@
             endingLineNumber = "40"
             landmarkName = "EventListTableViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73B0865A-3253-495E-9702-55FC85C38BC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/SingleEventView/SingleEventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "setupViews()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73B0865A-3253-495E-9702-55FC85C38BC2 - 7963488bca80adca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SingleEventViewController.setupViews() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arinagoncharova/Desktop/swift_projects/SuetaSwift/Sueta/SingleEventView/SingleEventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "73B0865A-3253-495E-9702-55FC85C38BC2 - 7963488bca80adeb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sueta.SingleEventViewController.setupViews() -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arinagoncharova/Desktop/swift_projects/SuetaSwift/Sueta/SingleEventView/SingleEventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
