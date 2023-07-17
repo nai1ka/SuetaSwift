@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 import MapKit
+import Combine
 
 class MainViewController: UITabBarController, OnEventChangeListener{
     func onEventAdded() {
         viewModel.fetchEvents()
     }
+    private var events: [Event] = []
     
-    
+    private var task: AnyCancellable?
     private var viewModel = MainViewModel()
    
     let mapViewController: MapViewController
@@ -72,7 +74,6 @@ class MainViewController: UITabBarController, OnEventChangeListener{
         view.backgroundColor = .systemBackground
            UITabBar.appearance().barTintColor = .systemBackground
            tabBar.tintColor = .label
-        bindViewModel()
         setupVCs()
         setupViews()
         viewModel.fetchEvents()
@@ -114,12 +115,7 @@ class MainViewController: UITabBarController, OnEventChangeListener{
                 newEventButton.heightAnchor.constraint(equalToConstant:40).isActive = true
     }
     
-    private func bindViewModel() {
-        viewModel.events.bind(to: self) { [weak self] _,_  in
-                self?.mapViewController.updateAnnotations()
-                self?.eventListViewController.updateEvents()
-            }
-        }
+   
     
     @objc private func createNewEvent(){
         let newEventVC = NewEventViewController()

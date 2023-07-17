@@ -7,13 +7,15 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class EventsListViewController: UIViewController, OnCellClickDelegate {
     let eventViewController = SingleEventViewController()
-    
+    private var task: AnyCancellable?
+    private var events: [Event] = []
     func onCellClick(indexPath: IndexPath) {
         self.present(eventViewController, animated: true)
-        eventViewController.event = viewModel.events.value[indexPath.row]
+        //eventViewController.event = viewModel.events.value[indexPath.row]
     }
     
     
@@ -33,12 +35,13 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableView.dataSource = tableController
         tableView.delegate = tableController
         tableController.listViewController = self
+        bindViewModel()
         setupTableView()
         tableView.reloadData()
         
     }
     
-    func setupTableView(){
+    private func setupTableView(){
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -48,9 +51,26 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    func updateEvents(){
-        tableController.setEvents(viewModel.events.value)
+    private func updateEvents(){
+        tableController.setEvents(events)
         tableView.reloadData()
     }
+    
+    private func bindViewModel() {
+           task = viewModel.$state
+               .sink { [weak self] state in
+                   switch state{
+                   case .loaded(let events):
+                       self?.events = events
+                       self?.updateEvents()
+                   case .loading:
+                       print("Loading")
+                   case .error(let err):
+                       print(err)
+                   }
+                   
+               }
+           
+       }
 }
 

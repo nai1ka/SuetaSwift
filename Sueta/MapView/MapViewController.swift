@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import FirebaseFirestore
 import FirebaseAuth
+import Combine
 
 class MapViewController: UIViewController{
     private lazy var mapView: MKMapView = {
@@ -18,10 +19,13 @@ class MapViewController: UIViewController{
         return mapView
     }()
     
+    private var task: AnyCancellable?
+    private var events: [Event] = []
+    
     let viewModel: MainViewModel
     
     init(_ viewModel: MainViewModel) {
-    
+        
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,11 +34,12 @@ class MapViewController: UIViewController{
         fatalError("Not implemented")
     }
     
-   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
         initViews()
         
     }
@@ -42,12 +47,12 @@ class MapViewController: UIViewController{
     //MARK: PUBLIC
     
     func updateAnnotations(){
-              for event in viewModel.events.value{
-                  let annotation = MKPointAnnotation()
-                  annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
-                  mapView.addAnnotation(annotation)
-              }
-          }
+        for event in events{
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
+            mapView.addAnnotation(annotation)
+        }
+    }
     
     
     //MARK: PRIVATE
@@ -61,8 +66,25 @@ class MapViewController: UIViewController{
         
     }
     
+    private func bindViewModel() {
+        task = viewModel.$state
+            .sink { [weak self] state in
+                switch state{
+                case .loaded(let events):
+                    self?.events = events
+                    self?.updateAnnotations()
+                case .loading:
+                    print("Loading")
+                case .error(let err):
+                    print(err)
+                }
+                
+            }
+        
+    }
     
-   
+    
+    
 }
 
 
