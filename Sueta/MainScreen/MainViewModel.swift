@@ -6,20 +6,24 @@
 //
 
 import Foundation
-import Bond
 import FirebaseFirestore
+import Combine
 
+enum State {
+    case loading
+    case loaded([Event])
+    case error(String)
+}
 
 class MainViewModel{
     
-    let events = Observable<[Event]>([])
-    let error = Observable<Error?>(nil)
+    @Published var state: State = .loading
     let db = Firestore.firestore()
    
     
     func fetchEvents(){
         FirebaseHelper.shared.readEvents(completion: { events in
-            self.events.value = events
+            self.state = .loaded(events)
             
         })
     }

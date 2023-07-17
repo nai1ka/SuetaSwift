@@ -10,6 +10,5 @@ pod 'FirebaseCore'
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'FirebaseStorage'
-pod 'Bond'
 
 end
