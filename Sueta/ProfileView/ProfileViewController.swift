@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController{
     }
     
     private func setupViews(){
+        signOutButton.layer.borderWidth
+       
         view.addSubview(signOutButton)
         NSLayoutConstraint.activate([
             signOutButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
