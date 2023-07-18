@@ -67,6 +67,9 @@ class FirebaseHelper {
         
     }
     
+   
+    
+    
     func readEvents(completion: @escaping (_ events: [Event]) -> Void){
         db.collection("core").document("events").collection("list").getDocuments {(querySnapshot, err) in
             if let err = err {
@@ -89,6 +92,7 @@ class FirebaseHelper {
             }
         }
     }
+    
     func subscribeToEvent(eventID: String){
         guard let user = getCurrentUser() else{
             return
