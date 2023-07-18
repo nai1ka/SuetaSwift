@@ -66,16 +66,6 @@ class SingleEventViewController: UIViewController {
     private lazy var numOfParticipantsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        if let numOfParticipants = event?.peopleNumber, let numOfJoined = event?.users.count {
-            if (numOfParticipants - numOfJoined > 0) {
-                label.text = "Осталось \(numOfParticipants - numOfJoined) мест"
-            } else {
-                label.text = "Места закончились"
-            }
-        } else {
-            label.text = "Нет информации о местах"
-        }
-        print(label.text)
         return label
     }()
     
@@ -127,6 +117,13 @@ class SingleEventViewController: UIViewController {
         eventDateLabel.text = dateFormatter.string(from: event.date)
         ownerIDLabel.text = event.ownerID
         
+        if (event.peopleNumber - event.users.count > 0) {
+                numOfParticipantsLabel.text = "Осталось \(event.peopleNumber - event.users.count) мест"
+            } else {
+                numOfParticipantsLabel.text = "Места закончились"
+            }
+        print(numOfParticipantsLabel.text)
+        
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
         mapView.addAnnotation(annotation)
@@ -146,7 +143,7 @@ class SingleEventViewController: UIViewController {
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        contentView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -16).isActive = true
+//        contentView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -16).isActive = true
     }
     
     func setupViews(){
