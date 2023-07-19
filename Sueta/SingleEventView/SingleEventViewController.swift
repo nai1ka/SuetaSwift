@@ -25,7 +25,6 @@ class SingleEventViewController: UIViewController {
         let eventNameLabel = UILabel()
         eventNameLabel.translatesAutoresizingMaskIntoConstraints = false
         eventNameLabel.textColor = .black
-        eventNameLabel.sizeToFit()
         eventNameLabel.textAlignment = .center
         eventNameLabel.font = .boldSystemFont(ofSize: 24)
         return eventNameLabel
@@ -42,8 +41,7 @@ class SingleEventViewController: UIViewController {
     private lazy var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.numberOfLines = 0
-        eventNameLabel.sizeToFit()
+        //        descriptionLabel.sizeToFit()
         return descriptionLabel
     }()
     
@@ -52,6 +50,7 @@ class SingleEventViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Организатор"
         label.font = .boldSystemFont(ofSize: 18)
+        label.sizeToFit()
         return label
     }()
     
@@ -60,18 +59,21 @@ class SingleEventViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Местоположение"
         label.font = .boldSystemFont(ofSize: 18)
+        label.sizeToFit()
         return label
     }()
     
     private lazy var numOfParticipantsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     
     private lazy var eventDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     private lazy var dateIcon: UIImageView = {
@@ -81,17 +83,19 @@ class SingleEventViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-//    var dateIconView = UIImageView(image: .)?<#default value#>
+    //    var dateIconView = UIImageView(image: .)?<#default value#>
     
     private lazy var ownerIDLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.isScrollEnabled = true
         return mapView
     }()
     
@@ -110,7 +114,11 @@ class SingleEventViewController: UIViewController {
     private func setupData(_ event: Event){
         print("Event title: \(event.title)")
         eventNameLabel.text = event.title
+        
         descriptionLabel.text = event.description
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.numberOfLines = 0
+        
         numOfParticipantsLabel.text = String(event.peopleNumber ?? 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM"
@@ -118,99 +126,83 @@ class SingleEventViewController: UIViewController {
         ownerIDLabel.text = event.ownerID
         
         if (event.peopleNumber - event.users.count > 0) {
-                numOfParticipantsLabel.text = "Осталось \(event.peopleNumber - event.users.count) мест"
-            } else {
-                numOfParticipantsLabel.text = "Места закончились"
-            }
-        print(numOfParticipantsLabel.text)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
-        mapView.addAnnotation(annotation)
+            numOfParticipantsLabel.text = "Количество оставшихся мест: \(event.peopleNumber - event.users.count)"
+        } else {
+            numOfParticipantsLabel.text = "Места закончились"
+        }
     }
     func setupScrollView(){
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
+        
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
         scrollView.addSubview(contentView)
         
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-//        contentView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -16).isActive = true
+        contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: scrollView.contentLayoutGuide.rightAnchor).isActive = true
     }
     
     func setupViews(){
         contentView.addSubview(eventNameLabel)
+        contentView.addSubview(dateIcon)
+        contentView.addSubview(eventDateLabel)
+        contentView.addSubview(numOfParticipantsLabel)
+        contentView.addSubview(descriptionName)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(organisatorLabel)
+        contentView.addSubview(ownerIDLabel)
+        contentView.addSubview(locationLabel)
+        contentView.addSubview(mapView)
+        
         eventNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48).isActive = true
-        eventNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
+        eventDateLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        //date icon
-        contentView.addSubview(dateIcon)
-        dateIcon.topAnchor.constraint(equalTo: eventNameLabel.topAnchor, constant: 56).isActive = true
-        dateIcon.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48).isActive = true
-        dateIcon.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        dateIcon.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        NSLayoutConstraint.activate([
+            dateIcon.topAnchor.constraint(equalTo: eventNameLabel.topAnchor, constant: 56),
+            dateIcon.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            dateIcon.widthAnchor.constraint(equalToConstant: 40),
+            dateIcon.heightAnchor.constraint(equalToConstant: 40),
+            
+            eventDateLabel.topAnchor.constraint(equalTo: dateIcon.topAnchor),
+            eventDateLabel.centerYAnchor.constraint(equalTo: dateIcon.centerYAnchor),
+            eventDateLabel.leftAnchor.constraint(equalTo: dateIcon.leftAnchor, constant: 48),
+            
+            
+            numOfParticipantsLabel.topAnchor.constraint(equalTo: dateIcon.bottomAnchor, constant: 24),
+            numOfParticipantsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
+            numOfParticipantsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            
+            descriptionName.topAnchor.constraint(equalTo: numOfParticipantsLabel.bottomAnchor, constant: 24),
+            descriptionName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 24),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            
+            organisatorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 24),
+            organisatorLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            
+            ownerIDLabel.topAnchor.constraint(equalTo: organisatorLabel.bottomAnchor, constant: 16),
+            ownerIDLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            
+            locationLabel.topAnchor.constraint(equalTo: ownerIDLabel.bottomAnchor, constant: 24),
+            locationLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            
+            mapView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 24),
+            mapView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            mapView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            mapView.heightAnchor.constraint(equalTo: mapView.widthAnchor),
+            mapView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
         
-        //event date label
-        contentView.addSubview(eventDateLabel)
-//        eventDateLabel.topAnchor.constraint(equalTo: dateIcon.topAnchor).isActive = true
-        eventDateLabel.centerYAnchor.constraint(equalTo: dateIcon.centerYAnchor).isActive = true
-        eventDateLabel.leftAnchor.constraint(equalTo: dateIcon.leftAnchor, constant: 48).isActive = true
-        eventDateLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
-        //available places label
-        
-        contentView.addSubview(numOfParticipantsLabel)
-//        numOfParticipantsLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        numOfParticipantsLabel.topAnchor.constraint(equalTo: dateIcon.bottomAnchor, constant: 24).isActive = true
-        numOfParticipantsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48).isActive = true
-        numOfParticipantsLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
-        //"Description"
-        contentView.addSubview(descriptionName)
-//        descriptionName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        descriptionName.topAnchor.constraint(equalTo: numOfParticipantsLabel.bottomAnchor, constant: 24).isActive = true
-//        descriptionName.widthAnchor.constraint(equalTo: numOfParticipantsLabel.widthAnchor, multiplier: 3/4).isActive = true
-        descriptionName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48).isActive = true
-
-        contentView.addSubview(descriptionLabel)
-        descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 16).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
-        //"Organisator"
-        contentView.addSubview(organisatorLabel)
-        organisatorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 24).isActive = true
-        organisatorLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        organisatorLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48).isActive = true
-        
-        // Organisator label
-        contentView.addSubview(ownerIDLabel)
-//        descriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        ownerIDLabel.topAnchor.constraint(equalTo: organisatorLabel.bottomAnchor, constant: 16).isActive = true
-        ownerIDLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        ownerIDLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24).isActive = true
-        
-        //"Location"
-        contentView.addSubview(locationLabel)
-        locationLabel.topAnchor.constraint(equalTo: ownerIDLabel.bottomAnchor, constant: 24).isActive = true
-        locationLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        locationLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48).isActive = true
-        
-        //map view
-        contentView.addSubview(mapView)
-        mapView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 24).isActive = true
-        mapView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        mapView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        mapView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
     }
 }
