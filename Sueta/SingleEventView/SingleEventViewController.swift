@@ -99,9 +99,15 @@ class SingleEventViewController: UIViewController {
         return mapView
     }()
     
-    //    private lazy var positionMap: GeoPoint = {
-    //
-    //    }nil
+    private lazy var joinButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Присоединиться", for: .normal)
+        button.backgroundColor = UIColor.blue
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,9 +141,14 @@ class SingleEventViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
+        view.addSubview(joinButton)
+        joinButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        joinButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        joinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: joinButton.topAnchor, constant: -16).isActive = true
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
@@ -151,6 +162,7 @@ class SingleEventViewController: UIViewController {
     }
     
     func setupViews(){
+        view.addSubview(joinButton)
         contentView.addSubview(eventNameLabel)
         contentView.addSubview(dateIcon)
         contentView.addSubview(eventDateLabel)
