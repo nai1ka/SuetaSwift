@@ -19,6 +19,7 @@ class SingleEventViewController: UIViewController {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
+    var eventChangeListener: OnEventChangeListener? = nil
     
     
     private lazy var eventNameLabel: UILabel = {
@@ -102,10 +103,12 @@ class SingleEventViewController: UIViewController {
     private lazy var joinButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Присоединиться", for: .normal)
+        
+        
         button.backgroundColor = UIColor.blue
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
+        
         return button
     }()
     
@@ -121,21 +124,28 @@ class SingleEventViewController: UIViewController {
         print("Event title: \(event.title)")
         eventNameLabel.text = event.title
         
+        if let currentUser = FirebaseHelper.shared.getCurrentUser(){
+            if(event.users.contains(currentUser.uid)){
+                joinButton.setTitle("Отписаться", for: .normal)
+                joinButton.addTarget(self, action: #selector(onLeaveClicked), for: .touchUpInside)
+            }
+            else{
+                joinButton.setTitle("Присоединиться", for: .normal)
+                joinButton.addTarget(self, action: #selector(onJoinClicked), for: .touchUpInside)
+            }
+        }
+        
+        
         descriptionLabel.text = event.description
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
         
-        numOfParticipantsLabel.text = String(event.peopleNumber ?? 0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM"
         eventDateLabel.text = dateFormatter.string(from: event.date)
         ownerIDLabel.text = event.ownerID
         
-        if (event.peopleNumber - event.users.count > 0) {
-            numOfParticipantsLabel.text = "Количество оставшихся мест: \(event.peopleNumber - event.users.count)"
-        } else {
-            numOfParticipantsLabel.text = "Места закончились"
-        }
+        setupNumberOfUsersLabel(event.peopleNumber - event.users.count)
     }
     func setupScrollView(){
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -216,5 +226,42 @@ class SingleEventViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
         
+    }
+    
+    @objc private func onJoinClicked(){
+        print("join clicked")
+        if let event = event, let eventID = event.id{
+            FirebaseHelper.shared.joinEvent(eventID: eventID)
+            eventChangeListener?.onUsersChanged()
+            joinButton.removeTarget(nil, action: nil, for: .allEvents)
+            joinButton.setTitle("Отписаться", for: .normal)
+            joinButton.addTarget(self, action: #selector(onLeaveClicked), for: .touchUpInside)
+            setupNumberOfUsersLabel(event.peopleNumber - event.users.count - 1)
+           
+        }
+        
+    }
+    
+    @objc private func onLeaveClicked(){
+        print("leave clicked")
+        if let eventID = event?.id{
+            FirebaseHelper.shared.leaveEvent(eventID: eventID)
+            eventChangeListener?.onUsersChanged()
+            self.dismiss(animated: true)
+            
+        }
+        
+    }
+    
+    private func setupNumberOfUsersLabel(_ numberOfPeople: Int){
+        guard event != nil else{
+            numOfParticipantsLabel.text = "Места закончились"
+            return
+        }
+        if (numberOfPeople > 0) {
+            numOfParticipantsLabel.text = "Количество оставшихся мест: \(numberOfPeople)"
+        } else {
+            numOfParticipantsLabel.text = "Места закончились"
+        }
     }
 }

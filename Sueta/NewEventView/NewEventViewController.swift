@@ -295,4 +295,5 @@ class NewEventViewController: UIViewController{
 
 protocol OnEventChangeListener{
     func onEventAdded()
+    func onUsersChanged()
 }

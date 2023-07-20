@@ -13,6 +13,9 @@ import FirebaseAuth
 import Combine
 
 class MapViewController: UIViewController{
+    
+    let eventViewController = SingleEventViewController()
+    
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,9 +50,12 @@ class MapViewController: UIViewController{
     //MARK: PUBLIC
     
     func updateAnnotations(){
-        for event in events{
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
+        for i in events.indices{
+            
+            let annotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude: events[i].position.latitude, longitude: events[i].position.longitude))
+            annotation.title = events[i].title
+            
+            annotation.index = i
             mapView.addAnnotation(annotation)
         }
     }
@@ -58,6 +64,7 @@ class MapViewController: UIViewController{
     //MARK: PRIVATE
     
     private func initViews(){
+        mapView.delegate = self
         view.addSubview(mapView)
         mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -85,6 +92,50 @@ class MapViewController: UIViewController{
     
     
     
+}
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("calloutAccessoryControlTapped")
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
+        if let annotationIndex = (view.annotation as? CustomAnnotation)?.index {
+            // Use the annotationID to identify the corresponding event or perform further actions
+            self.present(eventViewController, animated: true)
+            eventViewController.event = events[annotationIndex]
+            
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // Check if the annotation is of the desired type
+        guard let myAnnotation = annotation as? CustomAnnotation else {
+                return nil
+            }
+
+            let identifier = "customAnnotation"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+            if annotationView == nil {
+                // Create a new annotation view if it doesn't exist
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            } else {
+                // Reuse the existing annotation view
+                annotationView?.annotation = annotation
+            }
+
+            // Customize the appearance of the annotation view
+           
+              
+        annotationView?.image = UIImage(systemName: "mappin.square.fill")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                
+            
+
+            return annotationView
+    }
 }
 
 

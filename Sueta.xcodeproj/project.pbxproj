@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00300C362A670F2F00B32911 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00300C352A670F2F00B32911 /* CustomAnnotation.swift */; };
+		00310FDB2A69450200F5C81D /* JoinedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00310FDA2A69450200F5C81D /* JoinedEventsViewController.swift */; };
 		0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */; };
 		0055A2C32A5EE60200153C03 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2C22A5EE60200153C03 /* Event.swift */; };
 		005643052A60639C001B0265 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005643042A60639C001B0265 /* GoogleService-Info.plist */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00300C352A670F2F00B32911 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		00310FDA2A69450200F5C81D /* JoinedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedEventsViewController.swift; sourceTree = "<group>"; };
 		0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0055A2C22A5EE60200153C03 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		005643042A60639C001B0265 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -72,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00310FD92A6944D300F5C81D /* JoinedEventsView */ = {
+			isa = PBXGroup;
+			children = (
+				00310FDA2A69450200F5C81D /* JoinedEventsViewController.swift */,
+			);
+			path = JoinedEventsView;
+			sourceTree = "<group>";
+		};
 		0055A2C12A5EE5EB00153C03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				005643072A606488001B0265 /* FirebaseHelper.swift */,
+				00300C352A670F2F00B32911 /* CustomAnnotation.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -118,8 +131,9 @@
 		00C968FE2A5EB2E5000237F1 /* Sueta */ = {
 			isa = PBXGroup;
 			children = (
-        C3E771AB2A61AB1C002A17C9 /* SingleEventView */,
-        00E1D5F52A619EAA001722A9 /* AuthView */,
+				00310FD92A6944D300F5C81D /* JoinedEventsView */,
+				C3E771AB2A61AB1C002A17C9 /* SingleEventView */,
+				00E1D5F52A619EAA001722A9 /* AuthView */,
 				0056430B2A606EE0001B0265 /* NewEventView */,
 				005643062A606473001B0265 /* Service */,
 				0055A2C12A5EE5EB00153C03 /* Models */,
@@ -326,6 +340,7 @@
 				0055A2C32A5EE60200153C03 /* Event.swift in Sources */,
 				0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */,
 				0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */,
+				00300C362A670F2F00B32911 /* CustomAnnotation.swift in Sources */,
 				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
 				C3E771A52A607482002A17C9 /* EventCell.swift in Sources */,
@@ -334,6 +349,7 @@
 				00E1D5F72A619EC4001722A9 /* AuthViewController.swift in Sources */,
 				C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */,
 				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
+				00310FDB2A69450200F5C81D /* JoinedEventsViewController.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
 				00E1D5F92A61A813001722A9 /* SignUpView.swift in Sources */,

@@ -9,18 +9,14 @@ import Foundation
 import UIKit
 import Combine
 
-class EventsListViewController: UIViewController, OnCellClickDelegate {
-   
+class JoinedEventsViewController: UIViewController, OnCellClickDelegate {
+    let eventViewController = SingleEventViewController()
     private var task: AnyCancellable?
     private var events: [Event] = []
     func onCellClick(indexPath: IndexPath) {
-        let eventViewController = SingleEventViewController()
         self.present(eventViewController, animated: true)
         eventViewController.event = events[indexPath.row]
-        eventViewController.eventChangeListener = userChangeDelegate
     }
-    
-    var userChangeDelegate: MainViewController? = nil
     
     
     let tableView = UITableView()
@@ -35,7 +31,6 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
     }
     
     override func viewDidLoad() {
-       
         view.backgroundColor = .systemBackground
         tableView.dataSource = tableController
         tableView.delegate = tableController
@@ -66,7 +61,12 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
                .sink { [weak self] state in
                    switch state{
                    case .loaded(let events):
-                       self?.events = events
+                       self?.events = events.filter{event in
+                           guard let userID = FirebaseHelper.shared.getCurrentUser()?.uid
+                           else{
+                               return true
+                           }
+                           return event.users.contains(userID)}
                        self?.updateEvents()
                    case .loading:
                        print("Loading")

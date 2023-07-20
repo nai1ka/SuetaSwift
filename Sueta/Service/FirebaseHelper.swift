@@ -78,14 +78,17 @@ class FirebaseHelper {
                 var newEvents: [Event] = []
                 for document in querySnapshot!.documents {
                     let data = document.data()
+                    let id = document.documentID
                     let title = data["eventName"] as? String ?? ""
                     let description = data["eventDescription"] as? String ?? ""
                     let ownerID = data["owner"] as? String ?? ""
                     let date = data["eventDate"] as? Date ?? Date()
                     let peopleNumber = data["peopleNumber"] as? Int ?? 0
-                    
+                    let users = data["registeredPeople"] as? [String] ?? []
                     if let position = data["eventPosition"] as? GeoPoint {
-                        newEvents.append(Event(title: title, description: description, peopleNumber: peopleNumber, ownerID: ownerID, date: date, position: position))
+                        var newEvent = Event(id: id, title: title, description: description, peopleNumber: peopleNumber, ownerID: ownerID, date: date, position: position)
+                        newEvent.users = users
+                        newEvents.append(newEvent)
                     }
                 }
                 completion(newEvents)
@@ -93,16 +96,43 @@ class FirebaseHelper {
         }
     }
     
-    func subscribeToEvent(eventID: String){
+    func joinEvent(eventID: String){
         guard let user = getCurrentUser() else{
-            return
-        }
-        db.collection("core").document("events").collection("list").document(eventID).updateData(["users" : FieldValue.arrayUnion([user.uid])]) { err in
-            if let err = err{
-                print("\(err)")
-            }
-        }
+                   return
+               }
+        db.collection("core").document("events").collection("list").document(eventID).updateData(["registeredPeople" : FieldValue.arrayUnion([user.uid])]) { err in
+                   if let err = err{
+                       print("\(err)")
+                   }
+               }
+        
+        db.collection("core").document("users").collection("list").document(user.uid).updateData(["registeredEvents" : FieldValue.arrayUnion([eventID])]) { err in
+                          if let err = err{
+                              print("\(err)")
+                          }
+                      }
     }
+    
+    func leaveEvent(eventID: String){
+            guard let user = getCurrentUser() else{
+                       return
+                   }
+            db.collection("core").document("events").collection("list").document(eventID).updateData(["registeredPeople" : FieldValue.arrayRemove([user.uid])]) { err in
+                       if let err = err{
+                           print("\(err)")
+                       }
+                   }
+            
+            db.collection("core").document("users").collection("list").document(user.uid).updateData(["registeredEvents" : FieldValue.arrayRemove([eventID])]) { err in
+                              if let err = err{
+                                  print("\(err)")
+                              }
+                          }
+        }
+    
+    
+    
+    
     
     func signOut(){
         do{
