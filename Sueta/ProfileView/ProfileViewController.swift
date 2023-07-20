@@ -10,6 +10,12 @@ import UIKit
 
 
 class ProfileViewController: UIViewController{
+    var user: User? {
+        didSet {
+            guard let user else { return }
+//            setupData(user)
+        }
+    }
     
     private lazy var signOutButton: UIButton = {
         let button = UIButton()
@@ -21,6 +27,17 @@ class ProfileViewController: UIViewController{
        
         return button
     }()
+    
+    private lazy var profileImage: UIImageView = {
+        let img = UIImageView()
+        return img
+    }()
+    
+    private lazy var userName: UITextField = {
+        let textField = UITextField()
+        return textField
+    }()
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         setupViews()
