@@ -9,12 +9,13 @@ import Foundation
 import FirebaseFirestore
 
 struct Event{
+    var id: String?
     let title: String
     let description: String
-    let peopleNumber: Int
+    var peopleNumber: Int
     let ownerID: String
     let date: Date
     let position: GeoPoint
-    let users: [User] = []
+    var users: [String] = []
     
 }

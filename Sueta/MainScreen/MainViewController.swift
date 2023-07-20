@@ -11,6 +11,13 @@ import MapKit
 import Combine
 
 class MainViewController: UITabBarController, OnEventChangeListener{
+    func onUsersChanged() {
+        print("Changed")
+        viewModel.fetchEvents()
+    }
+    
+    
+    
     func onEventAdded() {
         viewModel.fetchEvents()
     }
@@ -57,9 +64,12 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     }
     
     init() {
+        
         mapViewController = MapViewController(viewModel)
         eventListViewController = EventsListViewController(viewModel)
         super.init(nibName: nil, bundle: nil)
+        eventListViewController.userChangeDelegate = self
+       
     }
     
     required init?(coder: NSCoder) {
