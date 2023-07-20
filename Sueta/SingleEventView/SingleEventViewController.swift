@@ -17,6 +17,11 @@ class SingleEventViewController: UIViewController {
     }
     
     
+    
+    final let leftPadding: CGFloat = 30
+    final let rightPadding: CGFloat = -30
+    final let topMargin: CGFloat = 12
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     var eventChangeListener: OnEventChangeListener? = nil
@@ -101,13 +106,26 @@ class SingleEventViewController: UIViewController {
     }()
     
     private lazy var joinButton: UIButton = {
-        let button = UIButton()
+        var button: UIButton
+       
+        
+        if #available(iOS 15.0, *) {
+            var filled = UIButton.Configuration.filled()
+            
+            filled.buttonSize = .large
+            filled.titlePadding = 10
+            button = UIButton(configuration: filled, primaryAction: nil)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+        } else {
+            button = UIButton()
+            button.backgroundColor = UIColor.blue
+            button.layer.cornerRadius = 8
+            button.clipsToBounds = true
+            
+        }
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        button.backgroundColor = UIColor.blue
-        button.layer.cornerRadius = 8
-        button.clipsToBounds = true
         
         return button
     }()
@@ -190,38 +208,39 @@ class SingleEventViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             dateIcon.topAnchor.constraint(equalTo: eventNameLabel.topAnchor, constant: 56),
-            dateIcon.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            dateIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             dateIcon.widthAnchor.constraint(equalToConstant: 40),
             dateIcon.heightAnchor.constraint(equalToConstant: 40),
             
             eventDateLabel.topAnchor.constraint(equalTo: dateIcon.topAnchor),
             eventDateLabel.centerYAnchor.constraint(equalTo: dateIcon.centerYAnchor),
-            eventDateLabel.leftAnchor.constraint(equalTo: dateIcon.leftAnchor, constant: 48),
+            eventDateLabel.leftAnchor.constraint(equalTo: dateIcon.rightAnchor, constant: 6),
             
             
-            numOfParticipantsLabel.topAnchor.constraint(equalTo: dateIcon.bottomAnchor, constant: 24),
-            numOfParticipantsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
-            numOfParticipantsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            numOfParticipantsLabel.topAnchor.constraint(equalTo: dateIcon.bottomAnchor, constant: topMargin),
+            numOfParticipantsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
+            numOfParticipantsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: rightPadding),
             
-            descriptionName.topAnchor.constraint(equalTo: numOfParticipantsLabel.bottomAnchor, constant: 24),
-            descriptionName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            descriptionName.topAnchor.constraint(equalTo: numOfParticipantsLabel.bottomAnchor, constant: topMargin),
+            descriptionName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             
-            descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 24),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: topMargin),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: rightPadding),
             
-            organisatorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 24),
-            organisatorLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            organisatorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: topMargin),
+            organisatorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             
             ownerIDLabel.topAnchor.constraint(equalTo: organisatorLabel.bottomAnchor, constant: 16),
-            ownerIDLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            ownerIDLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             
-            locationLabel.topAnchor.constraint(equalTo: ownerIDLabel.bottomAnchor, constant: 24),
-            locationLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 48),
+            locationLabel.topAnchor.constraint(equalTo: ownerIDLabel.bottomAnchor, constant: topMargin),
+            locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             
-            mapView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 24),
+            mapView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: topMargin),
             mapView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            mapView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            mapView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
+            mapView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: rightPadding),
             mapView.heightAnchor.constraint(equalTo: mapView.widthAnchor),
             mapView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
@@ -237,7 +256,7 @@ class SingleEventViewController: UIViewController {
             joinButton.setTitle("Отписаться", for: .normal)
             joinButton.addTarget(self, action: #selector(onLeaveClicked), for: .touchUpInside)
             setupNumberOfUsersLabel(event.peopleNumber - event.users.count - 1)
-           
+            
         }
         
     }
@@ -259,7 +278,7 @@ class SingleEventViewController: UIViewController {
             return
         }
         if (numberOfPeople > 0) {
-            numOfParticipantsLabel.text = "Количество оставшихся мест: \(numberOfPeople)"
+            numOfParticipantsLabel.text = "Осталось мест: \(numberOfPeople)"
         } else {
             numOfParticipantsLabel.text = "Места закончились"
         }

@@ -119,9 +119,9 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     
     private func setupVCs() {
         viewControllers = [
-            createNavController(for: mapViewController, title: NSLocalizedString("Map", comment: ""), image: UIImage(systemName: "map")!),
-            createNavController(for: eventListViewController, title: NSLocalizedString("Events", comment: ""), image: UIImage(systemName: "list.bullet")!),
-            createNavController(for: ProfileViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
+            createNavController(for: mapViewController, title: NSLocalizedString("Карта", comment: ""), image: UIImage(systemName: "map")!),
+            createNavController(for: eventListViewController, title: NSLocalizedString("События", comment: ""), image: UIImage(systemName: "list.bullet")!),
+            createNavController(for: ProfileViewController(), title: NSLocalizedString("Профиль", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
         ]
     }
     
