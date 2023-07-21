@@ -85,6 +85,7 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         bindViewModel()
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
@@ -124,8 +125,8 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     
     private func setupViews(){
         view.addSubview(newEventButton)
-        newEventButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        newEventButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        newEventButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        newEventButton.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: -10).isActive = true
         
         newEventButton.heightAnchor.constraint(equalToConstant:40).isActive = true
     }
