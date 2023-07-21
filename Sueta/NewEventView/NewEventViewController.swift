@@ -269,7 +269,14 @@ class NewEventViewController: UIViewController{
         mapView.leadingAnchor.constraint(equalTo: mapInfoView.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: mapInfoView.trailingAnchor).isActive = true
         mapView.bottomAnchor.constraint(equalTo: mapInfoView.bottomAnchor).isActive = true
+        if let location = SharedData.shared.currentCoordinates{
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                               
+            mapView.setRegion(region, animated: true)
+        }
+     
     }
+    
     
     private static func generateTitle(for value: String) -> UILabel{
         let text = UILabel()

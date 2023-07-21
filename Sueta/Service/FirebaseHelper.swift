@@ -81,7 +81,7 @@ class FirebaseHelper {
                     let id = document.documentID
                     let title = data["eventName"] as? String ?? ""
                     let description = data["eventDescription"] as? String ?? ""
-                    let ownerID = data["host"] as? String ?? ""
+                    let ownerID = data["eventOwner"] as? String ?? ""
                     let date = data["eventDate"] as? Date ?? Date()
                     let peopleNumber = data["peopleNumber"] as? Int ?? 0
                     let users = data["registeredPeople"] as? [String] ?? []

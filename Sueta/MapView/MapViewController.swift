@@ -12,16 +12,16 @@ import FirebaseFirestore
 import FirebaseAuth
 import Combine
 
-class MapViewController: UIViewController{
+class MapViewController: UIViewController, CLLocationManagerDelegate{
     
     let eventViewController = SingleEventViewController()
-    
+    var locationManager: CLLocationManager? = nil
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
-    
+    var userChangeDeledate: OnEventChangeListener?
     private var task: AnyCancellable?
     private var events: [Event] = []
     
@@ -43,6 +43,7 @@ class MapViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        setupLocationManager()
         initViews()
         
     }
@@ -64,7 +65,9 @@ class MapViewController: UIViewController{
     //MARK: PRIVATE
     
     private func initViews(){
+        
         mapView.delegate = self
+        
         view.addSubview(mapView)
         mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -87,11 +90,31 @@ class MapViewController: UIViewController{
                 }
                 
             }
-        
     }
     
-    
-    
+    func setupLocationManager() {
+            locationManager = CLLocationManager()
+            
+            locationManager!.delegate = self
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+
+            // Request location authorization from the user
+            locationManager!.requestWhenInUseAuthorization()
+
+            // Start updating the user's location
+            locationManager!.startUpdatingLocation()
+        }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if let location = locations.last {
+                // Update the map view's region to focus on the user's current location
+                let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                SharedData.shared.currentCoordinates = location
+                mapView.setRegion(region, animated: true)
+
+                // Optionally, you can stop updating location once you have the initial location
+                locationManager?.stopUpdatingLocation()
+            }
+        }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -105,6 +128,7 @@ extension MapViewController: MKMapViewDelegate {
             // Use the annotationID to identify the corresponding event or perform further actions
             self.present(eventViewController, animated: true)
             eventViewController.event = events[annotationIndex]
+            eventViewController.eventChangeListener = userChangeDeledate
             
         }
     }
@@ -129,8 +153,8 @@ extension MapViewController: MKMapViewDelegate {
             // Customize the appearance of the annotation view
            
               
-        annotationView?.image = UIImage(systemName: "mappin.square.fill")
-        annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        annotationView?.image = UIImage(systemName: "mappin.circle")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
                 
             
 

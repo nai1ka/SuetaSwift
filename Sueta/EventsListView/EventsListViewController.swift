@@ -12,7 +12,7 @@ import Combine
 class EventsListViewController: UIViewController, OnCellClickDelegate {
    
     private var task: AnyCancellable?
-    private var events: [Event] = []
+
     func onCellClick(indexPath: IndexPath) {
         let eventViewController = SingleEventViewController()
         self.present(eventViewController, animated: true)
@@ -20,18 +20,15 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         eventViewController.eventChangeListener = userChangeDelegate
     }
     
-    var userChangeDelegate: MainViewController? = nil
+    var userChangeDelegate: OnEventChangeListener? = nil
     
     
     let tableView = UITableView()
     let tableController = EventListTableViewController()
-    let viewModel: MainViewModel
-    init(_ viewModel: MainViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    required init?(coder: NSCoder) {
-        fatalError("Not implemented")
+    var events: [Event] = [] {
+        didSet{
+            updateEvents()
+        }
     }
     
     override func viewDidLoad() {
@@ -40,7 +37,6 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableView.dataSource = tableController
         tableView.delegate = tableController
         tableController.listViewController = self
-        bindViewModel()
         setupTableView()
         tableView.reloadData()
         
@@ -61,21 +57,6 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableView.reloadData()
     }
     
-    private func bindViewModel() {
-           task = viewModel.$state
-               .sink { [weak self] state in
-                   switch state{
-                   case .loaded(let events):
-                       self?.events = events
-                       self?.updateEvents()
-                   case .loading:
-                       print("Loading")
-                   case .error(let err):
-                       print(err)
-                   }
-                   
-               }
-           
-       }
+    
 }
 

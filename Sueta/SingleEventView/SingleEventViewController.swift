@@ -101,13 +101,13 @@ class SingleEventViewController: UIViewController {
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.isScrollEnabled = true
+        
         return mapView
     }()
     
     private lazy var joinButton: UIButton = {
         var button: UIButton
-       
+        
         
         if #available(iOS 15.0, *) {
             var filled = UIButton.Configuration.filled()
@@ -164,6 +164,13 @@ class SingleEventViewController: UIViewController {
         ownerIDLabel.text = event.ownerID
         
         setupNumberOfUsersLabel(event.peopleNumber - event.users.count)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
+        let region = MKCoordinateRegion(center:  annotation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+                mapView.setRegion(region, animated: true)
+      
+        mapView.addAnnotation(annotation)
     }
     func setupScrollView(){
         scrollView.translatesAutoresizingMaskIntoConstraints = false

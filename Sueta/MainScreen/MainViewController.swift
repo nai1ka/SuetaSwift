@@ -16,8 +16,6 @@ class MainViewController: UITabBarController, OnEventChangeListener{
         viewModel.fetchEvents()
     }
     
-    
-    
     func onEventAdded() {
         viewModel.fetchEvents()
     }
@@ -28,6 +26,8 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     
     let mapViewController: MapViewController
     let eventListViewController: EventsListViewController
+    let profileViewController: ProfileViewController
+    
     
     
     
@@ -66,29 +66,26 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     init() {
         
         mapViewController = MapViewController(viewModel)
-        eventListViewController = EventsListViewController(viewModel)
+        eventListViewController = EventsListViewController()
+        profileViewController = ProfileViewController()
         super.init(nibName: nil, bundle: nil)
         eventListViewController.userChangeDelegate = self
+        profileViewController.userChangeDeledate = self
+        mapViewController.userChangeDeledate = self
        
     }
     
     required init?(coder: NSCoder) {
         mapViewController = MapViewController(viewModel)
-        eventListViewController = EventsListViewController(viewModel)
+        eventListViewController = EventsListViewController()
+        profileViewController = ProfileViewController()
         super.init(coder: coder)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        DispatchQueue.global().sync {
-            print ("Hello")
-            DispatchQueue.global ().sync {
-                print("World")
-            }
-        }
+        bindViewModel()
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
         tabBar.tintColor = .label
@@ -121,7 +118,7 @@ class MainViewController: UITabBarController, OnEventChangeListener{
         viewControllers = [
             createNavController(for: mapViewController, title: NSLocalizedString("Карта", comment: ""), image: UIImage(systemName: "map")!),
             createNavController(for: eventListViewController, title: NSLocalizedString("События", comment: ""), image: UIImage(systemName: "list.bullet")!),
-            createNavController(for: ProfileViewController(), title: NSLocalizedString("Профиль", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
+            createNavController(for: profileViewController, title: NSLocalizedString("Профиль", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
         ]
     }
     
@@ -140,5 +137,21 @@ class MainViewController: UITabBarController, OnEventChangeListener{
         newEventVC.onEventChangeListener = self
         self.present(newEventVC, animated: true)
     }
+    
+    private func bindViewModel() {
+           task = viewModel.$state
+               .sink { [weak self] state in
+                   switch state{
+                   case .loaded(let events):
+                       self?.eventListViewController.events = events
+                       self?.profileViewController.events = events
+                   case .loading:
+                       print("Loading")
+                   case .error(let err):
+                       print(err)
+                   }
+                   
+               }
+       }
     
 }
