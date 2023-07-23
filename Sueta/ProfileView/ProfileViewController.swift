@@ -11,20 +11,20 @@ import Combine
 
 
 class ProfileViewController: UIViewController{
-    var user: User? {
-        didSet {
-            guard let user else { return }
-            //            setupData(user)
+    var childViewController: EventsListViewController?  var eventListViewController: EventsListViewController?
+    var signOutListener: SignOutListener?
+    private var task: AnyCancellable?
+    var events: [Event] = [] {
+        didSet{
+            onSegmentValueChanged()
         }
     }
-    var childViewController: EventsListViewController?
-    
+    var userChangeDeledate: OnEventChangeListener?
     
     private final let segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: ["Созданные", "Подписанные"])
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         segmentControl.selectedSegmentIndex = 0
-        
         segmentControl.addTarget(self, action: #selector(onSegmentValueChanged), for: .valueChanged)
         return segmentControl
     }()
@@ -35,20 +35,6 @@ class ProfileViewController: UIViewController{
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
-    
-    var eventListViewController: EventsListViewController?
-    var signOutListener: SignOutListener?
-    private var task: AnyCancellable?
-    var events: [Event] = [] {
-        didSet{
-            onSegmentValueChanged()
-        }
-    }
-    
-    var userChangeDeledate: OnEventChangeListener?
-    
-    
-    
     
     private lazy var signOutButton: UIButton = {
         var button: UIButton
@@ -82,9 +68,10 @@ class ProfileViewController: UIViewController{
         return textField
     }()
     
-   
+    //MARK: OVERRIDE
+    
     override func viewDidLoad() {
-       
+        
         Task{
             do{
                 let name: String
@@ -99,16 +86,14 @@ class ProfileViewController: UIViewController{
                     self.nameLabel.text = name
                 }
             }
-            
-            
-            
-            
         }
         view.backgroundColor = .white
         setupViews()
         addChildViewController()
         onSegmentValueChanged()
     }
+    
+    //MARK: PRIVATE
     
     private func setupViews(){
         

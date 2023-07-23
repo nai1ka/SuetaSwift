@@ -11,32 +11,14 @@ import MapKit
 import Combine
 
 class MainViewController: UITabBarController, OnEventChangeListener, SignOutListener{
-    func onEventReload() {
-        viewModel.fetchEvents()
-    }
     
-    func onSignOut() {
-        self.navigationController?.pushViewController(AuthViewController(), animated: true)
-    }
-    
-    func onUsersChanged() {
-        print("Changed")
-        viewModel.fetchEvents()
-    }
-    
-    func onEventAdded() {
-        viewModel.fetchEvents()
-    }
     private var events: [Event] = []
-    
     private var task: AnyCancellable?
     private var viewModel = MainViewModel()
     
     let mapViewController: MapViewController
     let eventListViewController: EventsListViewController
     let profileViewController: ProfileViewController
-    
-    
     
     
     private lazy var newEventButton: UIButton={
@@ -60,19 +42,7 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         
     }()
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if let index = (tabBar.items?.firstIndex(of: item)){
-            if(index==2){
-                newEventButton.isHidden = true
-            }
-            else{
-                newEventButton.isHidden = false
-            }
-        }
-    }
-    
     init() {
-        
         mapViewController = MapViewController(viewModel)
         eventListViewController = EventsListViewController()
         profileViewController = ProfileViewController()
@@ -81,7 +51,7 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         profileViewController.userChangeDeledate = self
         profileViewController.signOutListener = self
         mapViewController.userChangeDeledate = self
-       
+        
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +61,7 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         super.init(coder: coder)
     }
     
+    //MARK: OVERRIDE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +75,46 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         viewModel.fetchEvents()
     }
     
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if let index = (tabBar.items?.firstIndex(of: item)){
+            if(index==2){
+                newEventButton.isHidden = true
+            }
+            else{
+                newEventButton.isHidden = false
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
+    
+    
+    //MARK: PUBLIC
+    
+    func onEventReload() {
+        viewModel.fetchEvents()
+    }
+    
+    func onSignOut() {
+        self.navigationController?.pushViewController(AuthViewController(), animated: true)
+    }
+    
+    func onUsersChanged() {
+        print("Changed")
+        viewModel.fetchEvents()
+    }
+    
+    func onEventAdded() {
+        viewModel.fetchEvents()
+    }
+    
+    
+    
+    //MARK: PRIVATE
+    
     private func createNavController(for rootViewController: UIViewController,
                                      title: String,
                                      image: UIImage) -> UIViewController {
@@ -113,16 +124,9 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         navController.tabBarItem.image = image
         navController.navigationBar.barTintColor = .white
         rootViewController.navigationItem.title = title
-        
-        
-        
         return navController
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.hidesBackButton = true
-    }
     
     private func setupVCs() {
         viewControllers = [
@@ -136,7 +140,6 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
         view.addSubview(newEventButton)
         newEventButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         newEventButton.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: -10).isActive = true
-        
         newEventButton.heightAnchor.constraint(equalToConstant:40).isActive = true
     }
     
@@ -149,19 +152,19 @@ class MainViewController: UITabBarController, OnEventChangeListener, SignOutList
     }
     
     private func bindViewModel() {
-           task = viewModel.$state
-               .sink { [weak self] state in
-                   switch state{
-                   case .loaded(let events):
-                       self?.eventListViewController.events = events
-                       self?.profileViewController.events = events
-                   case .loading:
-                       print("Loading")
-                   case .error(let err):
-                       print(err)
-                   }
-                   
-               }
-       }
+        task = viewModel.$state
+            .sink { [weak self] state in
+                switch state{
+                case .loaded(let events):
+                    self?.eventListViewController.events = events
+                    self?.profileViewController.events = events
+                case .loading:
+                    print("Loading")
+                case .error(let err):
+                    print(err)
+                }
+                
+            }
+    }
     
 }
