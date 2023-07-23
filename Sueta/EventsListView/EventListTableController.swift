@@ -20,7 +20,7 @@ class EventListTableViewController: UITableViewController{
         self.events = events
     }
     
-    
+  
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count

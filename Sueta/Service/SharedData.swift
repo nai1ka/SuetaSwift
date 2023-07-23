@@ -16,4 +16,5 @@ class SharedData{
     var currentCoordinates: CLLocation?
     
     
+    
 }

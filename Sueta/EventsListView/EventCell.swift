@@ -12,15 +12,15 @@ final class EventTableViewCell:UITableViewCell {
     
     var event: Event?{
         didSet {
-            eventNameLabel.text = event?.title
-            numOfParticipantsLabel.text = String(event?.peopleNumber ?? 0)
+            guard let event = event else{
+                return
+            }
+            eventNameLabel.text = event.title
+            numOfParticipantsLabel.text = String(event.peopleNumber - event.users.count)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM"
-            if let date = event?.date {
-                eventDate.text = dateFormatter.string(from: date)
-            } else {
-                eventDate.text = dateFormatter.string(from: Date())
-            }
+            eventDate.text = dateFormatter.string(from: event.date)
+            
             
         }
     }
@@ -43,7 +43,7 @@ final class EventTableViewCell:UITableViewCell {
         return label
     }()
     
-   
+    
     
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -53,20 +53,20 @@ final class EventTableViewCell:UITableViewCell {
         addSubview(eventNameLabel)
         addSubview(numOfParticipantsLabel)
         addSubview(eventDate)
-
+        
         
         eventNameLabel.anchor(top: topAnchor, left: safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, paddingTop: 24, paddingLeft: 24, paddingBottom: 8, paddingRight: 0, width: frame.size.width / 2, height: 0, enableInsets: false)
         
         numOfParticipantsLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         numOfParticipantsLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
-
+        
         eventDate.anchor(top: eventNameLabel.bottomAnchor, left: safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 24, paddingBottom: 8, paddingRight: 0, width: frame.size.width/2, height: 0, enableInsets: false)
         
         
-       
-       
-         
-         
+        
+        
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -77,10 +77,7 @@ final class EventTableViewCell:UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupData(_ data: Event){
-        eventNameLabel.text = data.title
-        numOfParticipantsLabel.text = String(data.peopleNumber)
-    }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()

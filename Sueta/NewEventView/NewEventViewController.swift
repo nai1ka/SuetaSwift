@@ -91,7 +91,8 @@ class NewEventViewController: UIViewController{
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
-        mapView.translatesAutoresizingMaskIntoConstraints = false 
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.layer.cornerRadius = 10
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onMapClick))
         mapView.addGestureRecognizer(gestureRecognizer)
         return mapView
@@ -303,4 +304,5 @@ class NewEventViewController: UIViewController{
 protocol OnEventChangeListener{
     func onEventAdded()
     func onUsersChanged()
+    func onEventReload()
 }

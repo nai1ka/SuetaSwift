@@ -17,30 +17,44 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         let eventViewController = SingleEventViewController()
         self.present(eventViewController, animated: true)
         eventViewController.event = events[indexPath.row]
-        eventViewController.eventChangeListener = userChangeDelegate
+        eventViewController.eventChangeListener = eventChangeDelegate
     }
     
-    var userChangeDelegate: OnEventChangeListener? = nil
+    var eventChangeDelegate: OnEventChangeListener? = nil
     
     
+    let refreshControl = UIRefreshControl()
     let tableView = UITableView()
     let tableController = EventListTableViewController()
     var events: [Event] = [] {
         didSet{
             updateEvents()
+            refreshControl.endRefreshing()
         }
     }
     
     override func viewDidLoad() {
        
+        navigationController?.navigationBar.isTranslucent = false
         view.backgroundColor = .systemBackground
         tableView.dataSource = tableController
         tableView.delegate = tableController
         tableController.listViewController = self
         setupTableView()
         tableView.reloadData()
+      
+          refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+          tableView.addSubview(refreshControl) // not required when using UITableViewControlle
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          
+          // Hide the navigation bar
+          navigationController?.setNavigationBarHidden(true, animated: animated)
+      
+      }
     
     private func setupTableView(){
         view.addSubview(tableView)
@@ -56,7 +70,9 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableController.setEvents(events)
         tableView.reloadData()
     }
-    
+    @objc func refresh(_ sender: AnyObject) {
+        eventChangeDelegate?.onEventReload()
+    }
     
 }
 

@@ -26,6 +26,9 @@
 		00E1D5F72A619EC4001722A9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F62A619EC4001722A9 /* AuthViewController.swift */; };
 		00E1D5F92A61A813001722A9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F82A61A813001722A9 /* SignUpView.swift */; };
 		00E1D5FB2A61A973001722A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5FA2A61A973001722A9 /* SignInView.swift */; };
+		00E9AA362A6D47330000529D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9AA352A6D47330000529D /* UserCell.swift */; };
+		00E9AA382A6D4F030000529D /* UserListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9AA372A6D4F030000529D /* UserListTableController.swift */; };
+		00E9AA3A2A6D4F630000529D /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9AA392A6D4F630000529D /* UserListViewController.swift */; };
 		00FBE8022A6A8F800017DBE4 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FBE8012A6A8F800017DBE4 /* SharedData.swift */; };
 		B309B35F78A91811597B4CD8 /* Pods_Sueta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C360CC36832B14631911331F /* Pods_Sueta.framework */; };
 		C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E771A12A607481002A17C9 /* EventListTableController.swift */; };
@@ -56,6 +59,9 @@
 		00E1D5F62A619EC4001722A9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		00E1D5F82A61A813001722A9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		00E1D5FA2A61A973001722A9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		00E9AA352A6D47330000529D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		00E9AA372A6D4F030000529D /* UserListTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableController.swift; sourceTree = "<group>"; };
+		00E9AA392A6D4F630000529D /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		00FBE8012A6A8F800017DBE4 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		76B0FE0FCCF903AD67AF51B5 /* Pods-Sueta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sueta.release.xcconfig"; path = "Target Support Files/Pods-Sueta/Pods-Sueta.release.xcconfig"; sourceTree = "<group>"; };
 		C360CC36832B14631911331F /* Pods_Sueta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sueta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +140,7 @@
 		00C968FE2A5EB2E5000237F1 /* Sueta */ = {
 			isa = PBXGroup;
 			children = (
+				00E9AA342A6D471D0000529D /* JoinedUsersList */,
 				00310FD92A6944D300F5C81D /* JoinedEventsView */,
 				C3E771AB2A61AB1C002A17C9 /* SingleEventView */,
 				00E1D5F52A619EAA001722A9 /* AuthView */,
@@ -198,6 +205,16 @@
 				00E1D5FA2A61A973001722A9 /* SignInView.swift */,
 			);
 			path = AuthView;
+			sourceTree = "<group>";
+		};
+		00E9AA342A6D471D0000529D /* JoinedUsersList */ = {
+			isa = PBXGroup;
+			children = (
+				00E9AA352A6D47330000529D /* UserCell.swift */,
+				00E9AA372A6D4F030000529D /* UserListTableController.swift */,
+				00E9AA392A6D4F630000529D /* UserListViewController.swift */,
+			);
+			path = JoinedUsersList;
 			sourceTree = "<group>";
 		};
 		43659FC005952BCB4DD5CF49 /* Frameworks */ = {
@@ -343,6 +360,7 @@
 				0055A2C32A5EE60200153C03 /* Event.swift in Sources */,
 				0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */,
 				0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */,
+				00E9AA382A6D4F030000529D /* UserListTableController.swift in Sources */,
 				00300C362A670F2F00B32911 /* CustomAnnotation.swift in Sources */,
 				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
@@ -356,10 +374,12 @@
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
 				00FBE8022A6A8F800017DBE4 /* SharedData.swift in Sources */,
+				00E9AA3A2A6D4F630000529D /* UserListViewController.swift in Sources */,
 				00E1D5F92A61A813001722A9 /* SignUpView.swift in Sources */,
 				0056430A2A6068CB001B0265 /* User.swift in Sources */,
 				00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */,
 				C3E771AD2A61AB52002A17C9 /* SingleEventViewController.swift in Sources */,
+				00E9AA362A6D47330000529D /* UserCell.swift in Sources */,
 				C3E771A92A60853E002A17C9 /* UIView+Anchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,15 @@ import UIKit
 import MapKit
 import Combine
 
-class MainViewController: UITabBarController, OnEventChangeListener{
+class MainViewController: UITabBarController, OnEventChangeListener, SignOutListener{
+    func onEventReload() {
+        viewModel.fetchEvents()
+    }
+    
+    func onSignOut() {
+        self.navigationController?.pushViewController(AuthViewController(), animated: true)
+    }
+    
     func onUsersChanged() {
         print("Changed")
         viewModel.fetchEvents()
@@ -69,8 +77,9 @@ class MainViewController: UITabBarController, OnEventChangeListener{
         eventListViewController = EventsListViewController()
         profileViewController = ProfileViewController()
         super.init(nibName: nil, bundle: nil)
-        eventListViewController.userChangeDelegate = self
+        eventListViewController.eventChangeDelegate = self
         profileViewController.userChangeDeledate = self
+        profileViewController.signOutListener = self
         mapViewController.userChangeDeledate = self
        
     }
@@ -117,9 +126,9 @@ class MainViewController: UITabBarController, OnEventChangeListener{
     
     private func setupVCs() {
         viewControllers = [
-            createNavController(for: mapViewController, title: NSLocalizedString("Карта", comment: ""), image: UIImage(systemName: "map")!),
-            createNavController(for: eventListViewController, title: NSLocalizedString("События", comment: ""), image: UIImage(systemName: "list.bullet")!),
-            createNavController(for: profileViewController, title: NSLocalizedString("Профиль", comment: ""), image: UIImage(systemName: "person.crop.circle")!),
+            createNavController(for: mapViewController, title: "Карта", image: UIImage(systemName: "map")!),
+            createNavController(for: eventListViewController, title: "Событий", image: UIImage(systemName: "list.bullet")!),
+            createNavController(for: profileViewController, title: "Профиль", image: UIImage(systemName: "person.crop.circle")!),
         ]
     }
     

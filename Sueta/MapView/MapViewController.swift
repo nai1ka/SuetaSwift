@@ -41,13 +41,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         bindViewModel()
         setupLocationManager()
         initViews()
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            // Hide the navigation bar
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        }
     //MARK: PUBLIC
     
     func updateAnnotations(){

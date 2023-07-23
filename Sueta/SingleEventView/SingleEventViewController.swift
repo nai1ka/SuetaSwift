@@ -8,14 +8,13 @@
 import UIKit
 import MapKit
 
-class SingleEventViewController: UIViewController {
+class SingleEventViewController: UIViewController{
     var event: Event? {
         didSet {
             guard let event else { return }
             setupData(event)
         }
     }
-    
     
     
     final let leftPadding: CGFloat = 30
@@ -130,6 +129,32 @@ class SingleEventViewController: UIViewController {
         return button
     }()
     
+    private lazy var seeJoinedUsersButton: UIButton = {
+        var button: UIButton
+        
+        
+        if #available(iOS 15.0, *) {
+            var filled = UIButton.Configuration.filled()
+            
+            filled.buttonSize = .large
+            filled.titlePadding = 10
+            button = UIButton(configuration: filled, primaryAction: nil)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+        } else {
+            button = UIButton()
+            button.backgroundColor = UIColor.blue
+            button.layer.cornerRadius = 8
+            button.clipsToBounds = true
+            
+        }
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Участники", for: .normal)
+        button.addTarget(self, action: #selector(seeJoinedUSers), for: .touchUpInside)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -142,15 +167,27 @@ class SingleEventViewController: UIViewController {
         print("Event title: \(event.title)")
         eventNameLabel.text = event.title
         
+        
+        
         if let currentUser = FirebaseHelper.shared.getCurrentUser(){
-            if(event.users.contains(currentUser.uid)){
-                joinButton.setTitle("Отписаться", for: .normal)
-                joinButton.addTarget(self, action: #selector(onLeaveClicked), for: .touchUpInside)
+            if(event.ownerID == currentUser.uid){ // Current user is a host
+                seeJoinedUsersButton.isHidden = false
+                joinButton.isHidden = true
             }
-            else{
-                joinButton.setTitle("Присоединиться", for: .normal)
-                joinButton.addTarget(self, action: #selector(onJoinClicked), for: .touchUpInside)
+            else{ // Current user is not a host
+                seeJoinedUsersButton.isHidden = true
+                    joinButton.isHidden = false
+                if(event.users.contains(currentUser.uid)){
+                    joinButton.setTitle("Отписаться", for: .normal)
+                    joinButton.addTarget(self, action: #selector(onLeaveClicked), for: .touchUpInside)
+                }
+                else{
+                    joinButton.setTitle("Присоединиться", for: .normal)
+                    joinButton.addTarget(self, action: #selector(onJoinClicked), for: .touchUpInside)
+                }
             }
+            
+            
         }
         
         
@@ -161,15 +198,26 @@ class SingleEventViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM"
         eventDateLabel.text = dateFormatter.string(from: event.date)
-        ownerIDLabel.text = event.ownerID
+        Task{
+            do{
+                let owner = try await FirebaseHelper.shared.getUserBy(id: event.ownerID)
+                DispatchQueue.main.async {
+                    
+                    self.ownerIDLabel.text = owner?.name ?? "Deleted user"
+                               }
+            }
+            
+            
+        }
+       
         
         setupNumberOfUsersLabel(event.peopleNumber - event.users.count)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: event.position.latitude, longitude: event.position.longitude)
         let region = MKCoordinateRegion(center:  annotation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-                mapView.setRegion(region, animated: true)
-      
+        mapView.setRegion(region, animated: true)
+        
         mapView.addAnnotation(annotation)
     }
     func setupScrollView(){
@@ -177,9 +225,17 @@ class SingleEventViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         view.addSubview(joinButton)
+        view.addSubview(seeJoinedUsersButton)
+        
+        
         joinButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
         joinButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         joinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+      
+        
+        seeJoinedUsersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        seeJoinedUsersButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        seeJoinedUsersButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -208,6 +264,8 @@ class SingleEventViewController: UIViewController {
         contentView.addSubview(ownerIDLabel)
         contentView.addSubview(locationLabel)
         contentView.addSubview(mapView)
+        
+        
         
         eventNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48).isActive = true
@@ -250,6 +308,8 @@ class SingleEventViewController: UIViewController {
             mapView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: rightPadding),
             mapView.heightAnchor.constraint(equalTo: mapView.widthAnchor),
             mapView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            
+            
         ])
         
     }
@@ -271,7 +331,7 @@ class SingleEventViewController: UIViewController {
     @objc private func onLeaveClicked(){
         print("leave clicked")
         if let eventID = event?.id{
-            FirebaseHelper.shared.leaveEvent(eventID: eventID)
+            FirebaseHelper.shared.leave(event: eventID)
             eventChangeListener?.onUsersChanged()
             self.dismiss(animated: true)
             
@@ -288,6 +348,23 @@ class SingleEventViewController: UIViewController {
             numOfParticipantsLabel.text = "Осталось мест: \(numberOfPeople)"
         } else {
             numOfParticipantsLabel.text = "Места закончились"
+        }
+    }
+    
+    @objc private func seeJoinedUSers(){
+        guard let event = event else{
+            return
+        }
+        let controller = UserListViewController()
+        controller.eventID = event.id
+        self.present(controller, animated: true)
+        Task {
+            await FirebaseHelper.shared.getUsersFor(userIDS: event.users, completion:{ users in
+                DispatchQueue.main.async {
+                    controller.users = users
+                }
+                
+            })
         }
     }
 }

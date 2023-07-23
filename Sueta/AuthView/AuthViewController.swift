@@ -11,8 +11,8 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController, OnLoginListener{
   
-    func successfullyRegistered() {
-        FirebaseHelper.shared.registerUser()
+    func successfullyRegistered(name: String) {
+        FirebaseHelper.shared.registerUser(name: name)
         self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
     
@@ -97,7 +97,7 @@ class AuthViewController: UIViewController, OnLoginListener{
 
 protocol OnLoginListener{
     func successfullyLogined()
-    func successfullyRegistered()
+    func successfullyRegistered(name: String)
     func onAlreadyHasAccount()
     func onCreateAccout()
 }

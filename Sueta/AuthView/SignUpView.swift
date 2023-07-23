@@ -97,7 +97,7 @@ class SignUpView: UIView{
     @objc private func onRegisterClick(){
         
         
-        guard let email = emailTextField.text, let password = firstPasswordTextField.text, password == secondPasswordTextField.text, password.count > 4 else{
+        guard let name = nameTextField.text, let email = emailTextField.text, let password = firstPasswordTextField.text, password == secondPasswordTextField.text, password.count > 4 else{
             // TODO finish this
             print("Incorrent values")
             return
@@ -107,7 +107,7 @@ class SignUpView: UIView{
                 print("Cannot signup")
             }
             else{
-                self?.loginListener?.successfullyRegistered()
+                self?.loginListener?.successfullyRegistered(name: name)
             }
             
         }
