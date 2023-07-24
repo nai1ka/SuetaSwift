@@ -2,10 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Sueta/EventModel+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Sueta/EventModel+CoreDataProperties.swift">
+      location = "group:/Users/nai1ka/Downloads/Sueta/EventModel+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:Sueta.xcodeproj">

@@ -18,5 +18,10 @@ extension EventModel {
 
     @NSManaged public var title: String?
     @NSManaged public var id: String?
+    @NSManaged public var eventDescription: String?
+    @NSManaged public var peopleNumber: Int32
+    @NSManaged public var longitude: Double
+    @NSManaged public var latitude: Double
+    @NSManaged public var date: Date?
 
 }

@@ -14,136 +14,10 @@
             filePath = "Sueta/Service/PersistentContainer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "save(event:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DFC7A248-F7BA-4956-A795-CCDF46D2A50F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sueta/Service/PersistentContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "save(event:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DFC7A248-F7BA-4956-A795-CCDF46D2A50F - e4f27af83ff8ad38"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.save(event: Sueta.Event) -&gt; ()"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "1124">
-               </Location>
-               <Location
-                  uuid = "DFC7A248-F7BA-4956-A795-CCDF46D2A50F - e4f27af83ff8ad38"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.save(event: Sueta.Event) -&gt; ()"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "648">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12711902-44A0-4B1B-B0F8-835EA31F442F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sueta/Service/PersistentContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "fetchAllEvents(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "12711902-44A0-4B1B-B0F8-835EA31F442F - a23332600efd0307"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.fetchAllEvents() -&gt; Swift.Array&lt;Sueta.Event&gt;"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "352">
-               </Location>
-               <Location
-                  uuid = "12711902-44A0-4B1B-B0F8-835EA31F442F - a23332600efd0307"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.fetchAllEvents() -&gt; Swift.Array&lt;Sueta.Event&gt;"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "508">
-               </Location>
-               <Location
-                  uuid = "12711902-44A0-4B1B-B0F8-835EA31F442F - a23332600efd0307"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.fetchAllEvents() -&gt; Swift.Array&lt;Sueta.Event&gt;"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "496">
-               </Location>
-               <Location
-                  uuid = "12711902-44A0-4B1B-B0F8-835EA31F442F - 21afe3be8b8b94f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sueta.PersistentContainer.fetchAllEvents(completion: (Swift.Array&lt;Sueta.Event&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Sueta"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/PersistentContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "560">
-               </Location>
-            </Locations>
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -212,15 +86,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "22E6562F-E23D-4B4A-8DF9-4279577CE7D9"
-            shouldBeEnabled = "No"
+            uuid = "366E812D-F650-4D96-B4D8-FFF1371D2E25"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sueta/Service/PersistentContainer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fetchAllEvents(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3508CF07-6B4E-450E-A749-C0C3E926C656"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/Service/PersistentContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "save(event:)"
             landmarkType = "7">
          </BreakpointContent>

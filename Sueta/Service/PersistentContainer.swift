@@ -13,7 +13,7 @@ import FirebaseFirestore
 class PersistentContainer {
     // MARK: - Singleton Instance
     static let shared = PersistentContainer()
-
+    
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
@@ -24,7 +24,7 @@ class PersistentContainer {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
     func saveContext() {
         let context = persistentContainer.viewContext
@@ -39,20 +39,23 @@ class PersistentContainer {
     }
     
     func fetchAllEvents(completion: @escaping (_ events: [Event]) -> Void) {
-        let context = context
-        let fetchRequest: NSFetchRequest<EventModel> = EventModel.fetchRequest()
-
-        do {
-            let events = try context.fetch(fetchRequest)
-            var resultArray: [Event] = []
-            for rawEvent in events{
-                resultArray.append(Event(id: rawEvent.id, title: rawEvent.title ?? "", description: rawEvent.eventDescription ?? "", peopleNumber: Int(rawEvent.peopleNumber ?? 0), ownerID: "", date: rawEvent.date ?? Date(), position: GeoPoint(latitude: rawEvent.latitude, longitude: rawEvent.longitude)))
+        let context = persistentContainer.newBackgroundContext()
+        
+        context.perform {
+            do {
+                let fetchRequest: NSFetchRequest<EventModel> = EventModel.fetchRequest()
+                let events = try context.fetch(fetchRequest)
+                var resultArray: [Event] = []
+                for rawEvent in events{
+                    resultArray.append(Event(id: rawEvent.id, title: rawEvent.title ?? "", description: rawEvent.eventDescription ?? "", peopleNumber: Int(rawEvent.peopleNumber ?? 0), ownerID: "", date: rawEvent.date ?? Date(), position: GeoPoint(latitude: rawEvent.latitude, longitude: rawEvent.longitude)))
+                }
+                completion(resultArray)
+            } catch {
+                print("Error fetching events: \(error)")
+                
             }
-            completion(resultArray)
-        } catch {
-            print("Error fetching events: \(error)")
-            
         }
+        
     }
     func save(events: [Event]){
         for event in events{
@@ -63,14 +66,14 @@ class PersistentContainer {
         guard let eventID = event.id else{
             return
         }
-
-            // Check if an event with the same id already exists
+        let context = persistentContainer.newBackgroundContext()
+        context.perform{
             let fetchRequest: NSFetchRequest<EventModel> = EventModel.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", eventID)
-
+            fetchRequest.predicate = NSPredicate(format: "id == %@", eventID)
+            
             do {
                 let existingEvents = try context.fetch(fetchRequest)
-
+                
                 if let existingEvent = existingEvents.first {
                     print("Such event exists")
                 } else {
@@ -82,16 +85,19 @@ class PersistentContainer {
                     newEvent.date = event.date
                     newEvent.longitude = event.position.longitude
                     newEvent.latitude = event.position.latitude
-
+                    
                     print("New event saved successfully!")
                 }
-
+                
                 try context.save()
             } catch {
                 print("Error saving event: \(error)")
             }
+        }
+        // Check if an event with the same id already exists
+        
     }
-
+    
     // MARK: - Accessing the Managed Object Context
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
