@@ -11,7 +11,8 @@ import Combine
 
 
 class ProfileViewController: UIViewController{
-    var childViewController: EventsListViewController?  var eventListViewController: EventsListViewController?
+    var childViewController: EventsListViewController?
+    var eventListViewController: EventsListViewController?
     var signOutListener: SignOutListener?
     private var task: AnyCancellable?
     var events: [Event] = [] {

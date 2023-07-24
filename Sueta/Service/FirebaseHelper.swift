@@ -125,6 +125,9 @@ class FirebaseHelper {
     
     
     func getUserBy(id: String) async throws  -> User? {
+        guard !id.isEmpty else{
+            return nil
+        }
         let documentSnapshot = try await  db.collection("core").document("users").collection("list").document(id).getDocument()
         if let data = documentSnapshot.data() {
             let name = data["name"] as? String ?? ""

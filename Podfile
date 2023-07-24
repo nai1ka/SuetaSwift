@@ -9,6 +9,5 @@ target 'Sueta' do
 pod 'FirebaseCore'
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
-pod 'FirebaseStorage'
 
 end

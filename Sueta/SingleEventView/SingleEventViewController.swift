@@ -203,8 +203,11 @@ class SingleEventViewController: UIViewController{
                 let owner = try await FirebaseHelper.shared.getUserBy(id: event.ownerID)
                 DispatchQueue.main.async {
                     
-                    self.ownerIDLabel.text = owner?.name ?? "Deleted user"
+                    self.ownerIDLabel.text = owner?.name ?? "Unknown user"
                                }
+            }
+            catch{
+                print("error")
             }
             
             
