@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001EFB9A2A6EC4F500875F24 /* EventModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFB992A6EC4F500875F24 /* EventModel+CoreDataProperties.swift */; };
 		00300C362A670F2F00B32911 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00300C352A670F2F00B32911 /* CustomAnnotation.swift */; };
 		00310FDB2A69450200F5C81D /* JoinedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00310FDA2A69450200F5C81D /* JoinedEventsViewController.swift */; };
 		0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */; };
@@ -26,7 +27,6 @@
 		00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */; };
 		00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */; };
 		00E0DD0D2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */; };
-		00E0DD122A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */; };
 		00E1D5F72A619EC4001722A9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F62A619EC4001722A9 /* AuthViewController.swift */; };
 		00E1D5F92A61A813001722A9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F82A61A813001722A9 /* SignUpView.swift */; };
 		00E1D5FB2A61A973001722A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5FA2A61A973001722A9 /* SignInView.swift */; };
@@ -42,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		001EFB992A6EC4F500875F24 /* EventModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EventModel+CoreDataProperties.swift"; path = "Sueta/EventModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		00300C352A670F2F00B32911 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		00310FDA2A69450200F5C81D /* JoinedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedEventsViewController.swift; sourceTree = "<group>"; };
 		0055A2BF2A5EE4FD00153C03 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EventModel+CoreDataClass.swift"; path = "Sueta/EventModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EventModel+CoreDataProperties.swift"; path = "/Users/nai1ka/Downloads/Sueta/EventModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		00E1D5F62A619EC4001722A9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		00E1D5F82A61A813001722A9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		00E1D5FA2A61A973001722A9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		00C968F32A5EB2E5000237F1 = {
 			isa = PBXGroup;
 			children = (
-				00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */,
+				001EFB992A6EC4F500875F24 /* EventModel+CoreDataProperties.swift */,
 				00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */,
 				00AF28442A6E743700502533 /* DataModel.xcdatamodeld */,
 				00C968FE2A5EB2E5000237F1 /* Sueta */,
@@ -385,7 +385,7 @@
 				C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */,
 				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
 				00310FDB2A69450200F5C81D /* JoinedEventsViewController.swift in Sources */,
-				00E0DD122A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift in Sources */,
+				001EFB9A2A6EC4F500875F24 /* EventModel+CoreDataProperties.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
 				00FBE8022A6A8F800017DBE4 /* SharedData.swift in Sources */,
