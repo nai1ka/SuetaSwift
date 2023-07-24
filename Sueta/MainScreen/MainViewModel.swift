@@ -24,11 +24,11 @@ class MainViewModel{
     func fetchEvents(){
         PersistentContainer.shared.fetchAllEvents(){ events in
             self.state = .loaded(events)
-//            FirebaseHelper.shared.readEvents(completion: { events in
-//                        self.state = .loaded(events)
-//                        PersistentContainer.shared.save(events: events)
-//                        
-//                    })
+            FirebaseHelper.shared.readEvents(completion: { events in
+                        self.state = .loaded(events)
+                        PersistentContainer.shared.save(events: events)
+                        
+                    })
             
         }
         

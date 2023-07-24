@@ -17,7 +17,10 @@ class ProfileViewController: UIViewController{
     private var task: AnyCancellable?
     var events: [Event] = [] {
         didSet{
-            onSegmentValueChanged()
+            DispatchQueue.main.async {
+                self.onSegmentValueChanged()
+            }
+            
         }
     }
     var userChangeDeledate: OnEventChangeListener?

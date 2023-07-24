@@ -29,7 +29,10 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
     var events: [Event] = [] {
         didSet{
             updateEvents()
-            refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+            
         }
     }
     
@@ -68,7 +71,10 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
     
     private func updateEvents(){
         tableController.setEvents(events)
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+      
     }
     @objc func refresh(_ sender: AnyObject) {
         eventChangeDelegate?.onEventReload()
