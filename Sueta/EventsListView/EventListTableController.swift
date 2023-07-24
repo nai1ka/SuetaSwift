@@ -29,8 +29,7 @@ class EventListTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let eventCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTableViewCell
         eventCell.event = events[indexPath.row]
-        //        let cellColor = UIColor(red: 253/255.0, green: 250/255.0, blue: 186/255.0, alpha: 1)
-        //        eventCell.contentView.backgroundColor = cellColor
+        
         return eventCell
     }
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -39,7 +38,7 @@ class EventListTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 100
     }
     
 }

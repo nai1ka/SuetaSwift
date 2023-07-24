@@ -32,6 +32,8 @@ class SingleEventViewController: UIViewController{
         eventNameLabel.textColor = .black
         eventNameLabel.textAlignment = .center
         eventNameLabel.font = .boldSystemFont(ofSize: 24)
+        eventNameLabel.numberOfLines = 0
+        eventNameLabel.lineBreakMode = .byWordWrapping
         return eventNameLabel
     }()
     
@@ -39,7 +41,7 @@ class SingleEventViewController: UIViewController{
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Описание"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -54,7 +56,7 @@ class SingleEventViewController: UIViewController{
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Организатор"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 20)
         label.sizeToFit()
         return label
     }()
@@ -63,7 +65,7 @@ class SingleEventViewController: UIViewController{
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Местоположение"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 20)
         label.sizeToFit()
         return label
     }()
@@ -271,11 +273,13 @@ class SingleEventViewController: UIViewController{
         
         
         eventNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        eventNameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 50).isActive = true
+        eventNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -50).isActive = true
         eventNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48).isActive = true
-        eventDateLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        eventDateLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         NSLayoutConstraint.activate([
-            dateIcon.topAnchor.constraint(equalTo: eventNameLabel.topAnchor, constant: 56),
+            dateIcon.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: topMargin + 10),
             dateIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftPadding),
             dateIcon.widthAnchor.constraint(equalToConstant: 40),
             dateIcon.heightAnchor.constraint(equalToConstant: 40),
