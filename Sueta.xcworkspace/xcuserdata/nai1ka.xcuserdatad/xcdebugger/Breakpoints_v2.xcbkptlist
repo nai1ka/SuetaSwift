@@ -3,4 +3,117 @@
    uuid = "2D3EAC35-1A09-412F-90DB-256FE159121D"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "976CC35E-68BE-4FA0-B99A-CAEC50A60E63"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/Service/PersistentContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A757A9A6-83EE-4653-88E2-F12A9FC920AE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/Service/FirebaseHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "getUsersFor(userIDS:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A757A9A6-83EE-4653-88E2-F12A9FC920AE - aa18fe845882bf0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Sueta.FirebaseHelper.getUserBy(id: Swift.String) async -&gt; Swift.Optional&lt;Sueta.User&gt;"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/FirebaseHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "A757A9A6-83EE-4653-88E2-F12A9FC920AE - aa18fe845882bf0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Sueta.FirebaseHelper.getUserBy(id: Swift.String) async -&gt; Swift.Optional&lt;Sueta.User&gt;"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/FirebaseHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "A757A9A6-83EE-4653-88E2-F12A9FC920AE - 74fd5fb028e816e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Sueta.FirebaseHelper.getUsersFor(userIDS: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Array&lt;Sueta.User&gt;) -&gt; ()) async -&gt; ()"
+                  moduleName = "Sueta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nai1ka/Downloads/Sueta/Sueta/Service/FirebaseHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "366E812D-F650-4D96-B4D8-FFF1371D2E25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/Service/PersistentContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fetchAllEvents(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3508CF07-6B4E-450E-A749-C0C3E926C656"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sueta/Service/PersistentContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "save(event:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

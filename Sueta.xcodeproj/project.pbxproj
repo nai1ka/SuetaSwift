@@ -15,6 +15,8 @@
 		005643082A606488001B0265 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643072A606488001B0265 /* FirebaseHelper.swift */; };
 		0056430A2A6068CB001B0265 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005643092A6068CB001B0265 /* User.swift */; };
 		0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056430C2A606EF3001B0265 /* NewEventViewController.swift */; };
+		0063C49B2A6E6FA900B8D0B9 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063C49A2A6E6FA900B8D0B9 /* PersistentContainer.swift */; };
+		00AF28462A6E743700502533 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00AF28442A6E743700502533 /* DataModel.xcdatamodeld */; };
 		00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */; };
 		00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969012A5EB2E5000237F1 /* SceneDelegate.swift */; };
 		00C969092A5EB2E6000237F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C969082A5EB2E6000237F1 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C969172A5EB70C000237F1 /* MainViewController.swift */; };
 		00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */; };
 		00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */; };
+		00E0DD0D2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */; };
+		00E0DD122A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */; };
 		00E1D5F72A619EC4001722A9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F62A619EC4001722A9 /* AuthViewController.swift */; };
 		00E1D5F92A61A813001722A9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5F82A61A813001722A9 /* SignUpView.swift */; };
 		00E1D5FB2A61A973001722A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D5FA2A61A973001722A9 /* SignInView.swift */; };
@@ -46,6 +50,8 @@
 		005643072A606488001B0265 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		005643092A6068CB001B0265 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0056430C2A606EF3001B0265 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		0063C49A2A6E6FA900B8D0B9 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		00AF28452A6E743700502533 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		00C968FC2A5EB2E5000237F1 /* Sueta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sueta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C968FF2A5EB2E5000237F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00C969012A5EB2E5000237F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		00C969172A5EB70C000237F1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		00C9691B2A5EB7CE000237F1 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		00C9691D2A5EB7F7000237F1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EventModel+CoreDataClass.swift"; path = "Sueta/EventModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EventModel+CoreDataProperties.swift"; path = "/Users/nai1ka/Downloads/Sueta/EventModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		00E1D5F62A619EC4001722A9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		00E1D5F82A61A813001722A9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		00E1D5FA2A61A973001722A9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 				005643072A606488001B0265 /* FirebaseHelper.swift */,
 				00300C352A670F2F00B32911 /* CustomAnnotation.swift */,
 				00FBE8012A6A8F800017DBE4 /* SharedData.swift */,
+				0063C49A2A6E6FA900B8D0B9 /* PersistentContainer.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -122,6 +131,9 @@
 		00C968F32A5EB2E5000237F1 = {
 			isa = PBXGroup;
 			children = (
+				00E0DD112A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift */,
+				00E0DD0B2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift */,
+				00AF28442A6E743700502533 /* DataModel.xcdatamodeld */,
 				00C968FE2A5EB2E5000237F1 /* Sueta */,
 				00C968FD2A5EB2E5000237F1 /* Products */,
 				627A132DD4D67515ED1541E1 /* Pods */,
@@ -358,11 +370,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0055A2C32A5EE60200153C03 /* Event.swift in Sources */,
+				00E0DD0D2A6E7E2F00F31A86 /* EventModel+CoreDataClass.swift in Sources */,
 				0055A2C02A5EE4FD00153C03 /* MainViewModel.swift in Sources */,
 				0056430D2A606EF3001B0265 /* NewEventViewController.swift in Sources */,
 				00E9AA382A6D4F030000529D /* UserListTableController.swift in Sources */,
 				00300C362A670F2F00B32911 /* CustomAnnotation.swift in Sources */,
 				00C9691E2A5EB7F7000237F1 /* ProfileViewController.swift in Sources */,
+				0063C49B2A6E6FA900B8D0B9 /* PersistentContainer.swift in Sources */,
 				00C969002A5EB2E5000237F1 /* AppDelegate.swift in Sources */,
 				C3E771A52A607482002A17C9 /* EventCell.swift in Sources */,
 				00E1D5FB2A61A973001722A9 /* SignInView.swift in Sources */,
@@ -371,6 +385,7 @@
 				C3E771A42A607482002A17C9 /* EventListTableController.swift in Sources */,
 				00C9691C2A5EB7CE000237F1 /* EventsListViewController.swift in Sources */,
 				00310FDB2A69450200F5C81D /* JoinedEventsViewController.swift in Sources */,
+				00E0DD122A6E7F3E00F31A86 /* EventModel+CoreDataProperties.swift in Sources */,
 				00C969022A5EB2E5000237F1 /* SceneDelegate.swift in Sources */,
 				00C969152A5EB3F1000237F1 /* MapViewController.swift in Sources */,
 				00FBE8022A6A8F800017DBE4 /* SharedData.swift in Sources */,
@@ -379,6 +394,7 @@
 				0056430A2A6068CB001B0265 /* User.swift in Sources */,
 				00C969182A5EB70C000237F1 /* MainViewController.swift in Sources */,
 				C3E771AD2A61AB52002A17C9 /* SingleEventViewController.swift in Sources */,
+				00AF28462A6E743700502533 /* DataModel.xcdatamodeld in Sources */,
 				00E9AA362A6D47330000529D /* UserCell.swift in Sources */,
 				C3E771A92A60853E002A17C9 /* UIView+Anchor.swift in Sources */,
 			);
@@ -590,6 +606,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		00AF28442A6E743700502533 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				00AF28452A6E743700502533 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 00AF28452A6E743700502533 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 00C968F42A5EB2E5000237F1 /* Project object */;
 }

@@ -11,13 +11,17 @@ import Combine
 
 
 class ProfileViewController: UIViewController{
-    var childViewController: EventsListViewController?;
+
+    var childViewController: EventsListViewController?
     var eventListViewController: EventsListViewController?
     var signOutListener: SignOutListener?
     private var task: AnyCancellable?
     var events: [Event] = [] {
         didSet{
-            onSegmentValueChanged()
+            DispatchQueue.main.async {
+                self.onSegmentValueChanged()
+            }
+            
         }
     }
     var userChangeDeledate: OnEventChangeListener?
