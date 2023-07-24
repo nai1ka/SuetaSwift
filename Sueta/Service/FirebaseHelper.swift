@@ -83,7 +83,7 @@ class FirebaseHelper {
                     let title = data["eventName"] as? String ?? ""
                     let description = data["eventDescription"] as? String ?? ""
                     let ownerID = data["eventOwner"] as? String ?? ""
-                    let date = data["eventDate"] as? Date ?? Date()
+                    let date = (data["eventDate"] as? Timestamp)?.dateValue() ?? Date()
                     let peopleNumber = data["peopleNumber"] as? Int ?? 0
                     let users = data["registeredPeople"] as? [String] ?? []
                     if let position = data["eventPosition"] as? GeoPoint {
