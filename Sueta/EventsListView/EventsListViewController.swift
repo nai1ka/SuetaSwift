@@ -47,7 +47,7 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
         tableView.reloadData()
       
           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-          tableView.addSubview(refreshControl) // not required when using UITableViewControlle
+          tableView.addSubview(refreshControl)
         
     }
     
@@ -62,8 +62,8 @@ class EventsListViewController: UIViewController, OnCellClickDelegate {
     private func setupTableView(){
         view.addSubview(tableView)
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor.white // Замените на желаемый цвет разделителя
-        tableView.separatorInset = UIEdgeInsets(top: 40, left: 0, bottom: 40, right: 0) // Замените на желаемые отступы сверху и снизу
+        tableView.separatorColor = UIColor.white
+        tableView.separatorInset = UIEdgeInsets(top: 40, left: 0, bottom: 40, right: 0)
     
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true

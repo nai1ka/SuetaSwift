@@ -198,7 +198,7 @@ class SingleEventViewController: UIViewController{
         descriptionLabel.numberOfLines = 0
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         eventDateLabel.text = dateFormatter.string(from: event.date)
         Task{
             do{
