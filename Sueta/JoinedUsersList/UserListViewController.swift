@@ -19,39 +19,37 @@ class UserListViewController: UIViewController, UserDeleteListener {
         }
         FirebaseHelper.shared.unsubscribe(user: userID, from: eventID)
         tableController.users.remove(at: index)
-               tableView.beginUpdates()
-                       let indexPath = IndexPath(row: index, section: 0)
-                       tableView.deleteRows(at: [indexPath], with: .fade)
-                       tableView.endUpdates()
-            
+        tableView.beginUpdates()
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+        
+       
+        
+        
     }
     
-   
-   
-    
-   
-    
+  
     let tableView = UITableView()
     let tableController = UserListTableViewController()
     var users: [User] = []{
         didSet{
-           updateUsers()
+            updateUsers()
         }
- }
+    }
     
     override func viewDidLoad() {
-       
+        
         view.backgroundColor = .systemBackground
         
         tableView.dataSource = tableController
         tableView.delegate = tableController
         tableController.userDeleteListener = self
-       
+        
         setupTableView()
         tableView.reloadData()
         
     }
-    
     
     
     private func setupTableView(){
@@ -64,7 +62,7 @@ class UserListViewController: UIViewController, UserDeleteListener {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.register(UserCell.self, forCellReuseIdentifier: "userCell")
     }
-  
+    
     
     private func updateUsers(){
         tableController.users = users

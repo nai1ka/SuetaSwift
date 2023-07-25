@@ -16,8 +16,8 @@ class SignUpView: UIView{
     private lazy var createAccountLabel = AuthViewController.generateTitle(for: "Создайте новый аккаунт")
     private lazy var nameTextField = AuthViewController.generateTextField(for: "Введите имя")
     private lazy var emailTextField = AuthViewController.generateTextField(for: "Введите email")
-    private lazy var firstPasswordTextField = AuthViewController.generateTextField(for: "Введите пароль")
-    private lazy var secondPasswordTextField = AuthViewController.generateTextField(for: "Повторите пароль")
+    private lazy var firstPasswordTextField = AuthViewController.generateTextField(for: "Введите пароль", secured: true)
+    private lazy var secondPasswordTextField = AuthViewController.generateTextField(for: "Повторите пароль", secured: true)
     
     
     private lazy var registerButton: UIButton = {
@@ -72,7 +72,7 @@ class SignUpView: UIView{
         stackView.axis = .vertical
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
         stackView.spacing = 16
         stackView.addArrangedSubview(createAccountLabel)
         stackView.addArrangedSubview(nameTextField)

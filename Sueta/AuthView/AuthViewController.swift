@@ -16,8 +16,6 @@ class AuthViewController: UIViewController, OnLoginListener{
         self.navigationController?.pushViewController(MainViewController(), animated: true)
     }
     
-    
-    
     func onCreateAccout() {
         signInView.isHidden = true
         signUpView.isHidden = false
@@ -81,13 +79,14 @@ class AuthViewController: UIViewController, OnLoginListener{
         return text
     }
     
-    static func generateTextField(for placeholder: String) -> UITextField{
+    static func generateTextField(for placeholder: String, secured: Bool = false) -> UITextField{
         let field = UITextField()
         field.placeholder = placeholder
         field.borderStyle = .roundedRect
         field.isEnabled = true
         field.resignFirstResponder()
         field.selectedTextRange = nil
+        field.isSecureTextEntry = secured
         field.translatesAutoresizingMaskIntoConstraints = false
         field.heightAnchor.constraint(equalToConstant: 48).isActive = true
         return field

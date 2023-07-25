@@ -121,7 +121,7 @@ class FirebaseHelper {
         unsubscribe(user: currentUser.uid, from: eventID)
     }
     
-   
+    
     
     
     func getUserBy(id: String) async throws  -> User? {
@@ -143,7 +143,7 @@ class FirebaseHelper {
             for userID in userIDS{
                 let user = try await getUserBy(id: userID)
                 if(user != nil){  users.append(user!)}
-               
+                
             }
             completion(users)
         }
@@ -153,18 +153,39 @@ class FirebaseHelper {
         
     }
     
+    
+    func getUsersFor(eventID: String, completion: @escaping (_ users: [User]) -> Void) async {
+        var users: [User] = []
+        var userIDS: [String] = []
+        
+        do{
+            let documentSnapshot = try await  db.collection("core").document("events").collection("list").document(eventID).getDocument()
+            if let data = documentSnapshot.data() {
+                userIDS = data["registeredPeople"] as? [String] ?? []
+            } else {
+                completion([])
+            }
+            
+            await getUsersFor(userIDS: userIDS, completion: completion)
+        }
+        catch{
+            print("error")
+        }
+        
+    }
+    
     func unsubscribe(user userID: String, from eventID: String){
         db.collection("core").document("events").collection("list").document(eventID).updateData(["registeredPeople" : FieldValue.arrayRemove([userID])]) { err in
-                   if let err = err{
-                       print("\(err)")
-                   }
-               }
-               
-               db.collection("core").document("users").collection("list").document(userID).updateData(["registeredEvents" : FieldValue.arrayRemove([eventID])]) { err in
-                   if let err = err{
-                       print("\(err)")
-                   }
-               }
+            if let err = err{
+                print("\(err)")
+            }
+        }
+        
+        db.collection("core").document("users").collection("list").document(userID).updateData(["registeredEvents" : FieldValue.arrayRemove([eventID])]) { err in
+            if let err = err{
+                print("\(err)")
+            }
+        }
     }
     
     
@@ -184,4 +205,4 @@ class FirebaseHelper {
     }
     
 }
-    
+

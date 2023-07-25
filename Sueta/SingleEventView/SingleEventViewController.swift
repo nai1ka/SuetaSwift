@@ -359,14 +359,14 @@ class SingleEventViewController: UIViewController{
     }
     
     @objc private func seeJoinedUSers(){
-        guard let event = event else{
+        guard let event = event, let eventID = event.id else{
             return
         }
         let controller = UserListViewController()
         controller.eventID = event.id
         self.present(controller, animated: true)
         Task {
-            await FirebaseHelper.shared.getUsersFor(userIDS: event.users, completion:{ users in
+            await FirebaseHelper.shared.getUsersFor(eventID: eventID, completion:{ users in
                 DispatchQueue.main.async {
                     controller.users = users
                 }

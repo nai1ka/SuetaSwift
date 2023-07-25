@@ -15,7 +15,7 @@ class SignInView: UIView{
     
     private lazy var loginLabel = AuthViewController.generateTitle(for: "Войдите в аккаунт")
     private lazy var emailTextField = AuthViewController.generateTextField(for: "Введите email")
-    private lazy var passwordTextField = AuthViewController.generateTextField(for: "Введите пароль")
+    private lazy var passwordTextField = AuthViewController.generateTextField(for: "Введите пароль", secured: true)
     
     
     private lazy var loginButton: UIButton = {
@@ -69,7 +69,7 @@ class SignInView: UIView{
         stackView.axis = .vertical
         stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
         stackView.spacing = 16
         stackView.addArrangedSubview(loginLabel)
         stackView.addArrangedSubview(emailTextField)
