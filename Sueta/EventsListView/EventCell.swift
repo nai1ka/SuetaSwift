@@ -88,7 +88,7 @@ final class EventTableViewCell:UITableViewCell {
         eventNameLabel.trailingAnchor.constraint(equalTo: numOfParticipantsLabel.leadingAnchor, constant: -10).isActive = true
         
         dateIcon.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 8).isActive = true
-        dateIcon.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 24).isActive = true
+        dateIcon.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 24).isActive = true
         dateIcon.widthAnchor.constraint(equalToConstant: 30).isActive = true
         dateIcon.heightAnchor.constraint(equalToConstant: 30).isActive = true
 

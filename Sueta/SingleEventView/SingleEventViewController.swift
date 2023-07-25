@@ -245,16 +245,16 @@ class SingleEventViewController: UIViewController{
         
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: joinButton.topAnchor, constant: -16).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         scrollView.addSubview(contentView)
         
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
-        contentView.leftAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leftAnchor).isActive = true
-        contentView.rightAnchor.constraint(equalTo: scrollView.contentLayoutGuide.rightAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor).isActive = true
     }
     
     func setupViews(){
@@ -286,7 +286,7 @@ class SingleEventViewController: UIViewController{
             
             eventDateLabel.topAnchor.constraint(equalTo: dateIcon.topAnchor),
             eventDateLabel.centerYAnchor.constraint(equalTo: dateIcon.centerYAnchor),
-            eventDateLabel.leftAnchor.constraint(equalTo: dateIcon.rightAnchor, constant: 6),
+            eventDateLabel.leadingAnchor.constraint(equalTo: dateIcon.trailingAnchor, constant: 6),
             
             
             numOfParticipantsLabel.topAnchor.constraint(equalTo: dateIcon.bottomAnchor, constant: topMargin),

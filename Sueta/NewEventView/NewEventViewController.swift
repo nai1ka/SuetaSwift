@@ -119,15 +119,15 @@ class NewEventViewController: UIViewController{
         
         
         view.addSubview(nextButton)
-        nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
         nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
         view.addSubview(prevButton)
-        prevButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        prevButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
         prevButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         
         view.addSubview(doneButton)
-        doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
         doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -135,7 +135,7 @@ class NewEventViewController: UIViewController{
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 16).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
         scrollView.addSubview(generalInfoView)
@@ -143,7 +143,7 @@ class NewEventViewController: UIViewController{
         generalInfoView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         generalInfoView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         generalInfoView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
-        generalInfoView.leftAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leftAnchor, constant: 16).isActive = true
+        generalInfoView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 16).isActive = true
         generalInfoView.rightAnchor.constraint(equalTo: scrollView.contentLayoutGuide.rightAnchor, constant: -16).isActive = true
 
         
