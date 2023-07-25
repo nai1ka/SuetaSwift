@@ -13,6 +13,9 @@ import FirebaseAuth
 
 class NewEventViewController: UIViewController{
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     private final let segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: ["Информация", "Карта"])
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +110,6 @@ class NewEventViewController: UIViewController{
         super.viewDidLoad()
         setupViews()
     }
-    
     func setupViews(){
         view.backgroundColor = .systemBackground
         view.addSubview(segmentControl)
@@ -128,11 +130,28 @@ class NewEventViewController: UIViewController{
         doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
-        view.addSubview(generalInfoView)
-        generalInfoView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 8).isActive = true
-        generalInfoView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -8).isActive = true
-        generalInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
-        generalInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 16).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        scrollView.addSubview(generalInfoView)
+        
+        generalInfoView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        generalInfoView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
+        generalInfoView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        generalInfoView.leftAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leftAnchor, constant: 16).isActive = true
+        generalInfoView.rightAnchor.constraint(equalTo: scrollView.contentLayoutGuide.rightAnchor, constant: -16).isActive = true
+
+        
+//        view.addSubview(generalInfoView)
+//        generalInfoView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 8).isActive = true
+//        generalInfoView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -8).isActive = true
+//        generalInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+//        generalInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
         mapInfoView.isHidden = true
         view.addSubview(mapInfoView)
@@ -260,6 +279,7 @@ class NewEventViewController: UIViewController{
         datePicker.topAnchor.constraint(equalTo: enterDateLabel.bottomAnchor, constant: 8).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: generalInfoView.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16).isActive = true
         
     }
     
