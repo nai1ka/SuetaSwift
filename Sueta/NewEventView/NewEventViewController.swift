@@ -11,7 +11,7 @@ import MapKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class NewEventViewController: UIViewController{
+class NewEventViewController: UIViewController, UITextFieldDelegate{
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -164,6 +164,11 @@ class NewEventViewController: UIViewController{
         setupMapView()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
+    
     
     //MARK: PRIVATE
     
@@ -245,6 +250,7 @@ class NewEventViewController: UIViewController{
         enterTitleLabel.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
         
         generalInfoView.addSubview(titleTextField)
+        titleTextField.delegate = self
         titleTextField.topAnchor.constraint(equalTo: enterTitleLabel.bottomAnchor, constant: 8).isActive = true
         titleTextField.leadingAnchor.constraint(equalTo: generalInfoView.leadingAnchor).isActive = true
         titleTextField.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
@@ -255,6 +261,7 @@ class NewEventViewController: UIViewController{
         enterDiscriptionLabel.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
         
         generalInfoView.addSubview(descriptionTextField)
+        descriptionTextField.delegate = self
         descriptionTextField.topAnchor.constraint(equalTo: enterDiscriptionLabel.bottomAnchor, constant: 8).isActive = true
         descriptionTextField.leadingAnchor.constraint(equalTo: generalInfoView.leadingAnchor).isActive = true
         descriptionTextField.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
@@ -266,6 +273,7 @@ class NewEventViewController: UIViewController{
         enterNumberOfPeopleLabel.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
         
         generalInfoView.addSubview(numberOfPeopleTextField)
+        numberOfPeopleTextField.delegate = self
         numberOfPeopleTextField.topAnchor.constraint(equalTo: enterNumberOfPeopleLabel.bottomAnchor, constant: 8).isActive = true
         numberOfPeopleTextField.leadingAnchor.constraint(equalTo: generalInfoView.leadingAnchor).isActive = true
         numberOfPeopleTextField.trailingAnchor.constraint(equalTo: generalInfoView.trailingAnchor).isActive = true
