@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class SignUpView: UIView{
+class SignUpView: UIView, UITextFieldDelegate{
     
     var loginListener: OnLoginListener?
     
@@ -64,9 +64,14 @@ class SignUpView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
+        
     }
     
     func initSubviews() {
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        firstPasswordTextField.delegate = self
+        secondPasswordTextField.delegate = self
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(stackView)
         stackView.axis = .vertical
@@ -80,6 +85,8 @@ class SignUpView: UIView{
         stackView.addArrangedSubview(firstPasswordTextField)
         stackView.addArrangedSubview(secondPasswordTextField)
         
+        
+        
         self.addSubview(alreadyHaveAccount)
         
         self.addSubview(registerButton)
@@ -92,6 +99,11 @@ class SignUpView: UIView{
             registerButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             registerButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @objc private func onRegisterClick(){

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class SignInView: UIView{
+class SignInView: UIView, UITextFieldDelegate{
     
     var loginListener: OnLoginListener?
     
@@ -64,6 +64,10 @@ class SignInView: UIView{
     }
     
     func initSubviews() {
+       
+                emailTextField.delegate = self
+                passwordTextField.delegate = self
+              
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(stackView)
         stackView.axis = .vertical
@@ -86,6 +90,11 @@ class SignInView: UIView{
             loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
     
     @objc private func onLoginClick(){
         
